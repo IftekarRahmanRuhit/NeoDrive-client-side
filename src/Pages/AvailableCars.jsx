@@ -11,7 +11,7 @@ const AvailableCars = () => {
   const [viewType, setViewType] = useState("grid"); 
 
   useEffect(() => {
-    // Fetch car data
+   
     const fetchCars = async () => {
       try {
         const response = await axios.get(
@@ -127,6 +127,9 @@ const AvailableCars = () => {
               </p>
               <p className="text-gray-600">
                 Availability: {format(new Date(car.availability), "P")}
+              </p>
+              <p className="text-gray-600">
+                BookingCount: {car.bookingCount} 
               </p>
               <p className="text-gray-500 text-sm">Location: {car.location}</p>
               <Link to={`/cardetails/${car._id}`}>
