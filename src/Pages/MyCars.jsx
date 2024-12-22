@@ -4,7 +4,7 @@ import React from 'react';
 const MyCars = () => {
     return (
         <div>
-            This is My cars section
+            This is My cars sections
         </div>
     );
 };
