@@ -10,6 +10,7 @@ import MyCars from "../Pages/MyCars";
 import MyBookings from "../Pages/MyBookings";
 import PrivateRoute from "./PrivateRoute";
 import ForgetPassword from "../Pages/Authentication/ForgetPassword";
+import CarDetails from "../Pages/CarDetails";
 
 
 export const routes = createBrowserRouter([
@@ -50,6 +51,10 @@ export const routes = createBrowserRouter([
         {
             path: '/forgetpassword',
             element: <ForgetPassword></ForgetPassword>
+        },
+        {
+            path: '/cardetails/:id',
+            element: <CarDetails></CarDetails>
         }
        
         ]
