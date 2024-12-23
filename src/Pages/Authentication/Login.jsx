@@ -126,7 +126,7 @@ const Login = () => {
             </div>
 
             <p className="text-center mt-4 font-medium text-base-300">
-              Don't have an account?
+              Don't have an account? {" "}
               <Link to="/register" className="text-[#ff3700d7] underline dark:text-[#00ADB5]">
                 Register
               </Link>

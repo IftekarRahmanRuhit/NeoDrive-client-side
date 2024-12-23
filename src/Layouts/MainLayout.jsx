@@ -7,9 +7,15 @@ const MainLayout = () => {
     return (
         <div>
              <Toaster />
-            <Navbar></Navbar>
-            <Outlet></Outlet>
-            <Footer></Footer>
+           <div>
+           <Navbar></Navbar>
+           </div>
+           <div className="min-h-[calc(100vh-417px)]">
+             <Outlet></Outlet>
+             </div>
+           <div>
+           <Footer></Footer>
+           </div>
         </div>
     );
 };
