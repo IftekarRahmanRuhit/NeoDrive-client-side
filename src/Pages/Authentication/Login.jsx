@@ -57,22 +57,22 @@ const Login = () => {
   };
 
   return (
-    <div className="hero min-h-screen bg-slate-200 relative max-w-screen-2xl mx-auto">
+    <div className="hero min-h-screen bg-[#191919] relative max-w-screen-2xl mx-auto">
 
       <div className="hero-content flex-col lg:flex-row-reverse w-full z-10 relative">
-        <div className="card mt-4 bg-white dark:bg-gray-800 w-full max-w-lg shrink-0 shadow-2xl border mb-16 dark:border-gray-700">
+        <div className="card mt-4 bg-gradient-to-r from-gray-950 via-gray-900 to-black w-full max-w-lg shrink-0 shadow-2xl  mb-16 ">
           <form onSubmit={handleLogin} className="card-body">
           
-            <h1 className="text-3xl font-bold text-center text-[#00ADB5] dark:text-[#00ADB5]">
+            <h1 className="text-3xl font-bold text-center text-[#ff3700d7] ">
               Welcome Back
             </h1>
-            <p className="text-center text-gray-500 font-medium dark:text-gray-300">
+            <p className="text-center text-base-300 font-medium ">
               Please enter your details to sign in
             </p>
 
             <div className="form-control mt-4">
               <label className="label">
-                <span className="label-text text-lg font-semibold text-gray-700 dark:text-gray-200">
+                <span className="label-text text-lg font-semibold text-base-300  ">
                   Email
                 </span>
               </label>
@@ -81,14 +81,14 @@ const Login = () => {
                 name="email"
                 placeholder="Enter your email"
                 ref={emailRef}
-                className="input input-bordered focus:outline-none focus:ring-2 focus:ring-[#00ADB5] dark:bg-gray-700 dark:text-white dark:border-gray-600"
+                className="input input-bordered focus:outline-none focus:ring-2 focus:ring-gray-700 bg-gray-800 text-white"
                 required
               />
             </div>
 
             <div className="form-control relative">
               <label className="label">
-                <span className="label-text text-lg font-semibold text-gray-700 dark:text-gray-200">
+                <span className="label-text text-lg font-semibold text-base-300 ">
                   Password
                 </span>
               </label>
@@ -96,20 +96,20 @@ const Login = () => {
                 type={showPassword ? "text" : "password"}
                 name="password"
                 placeholder="Enter your password"
-                className="input input-bordered focus:outline-none focus:ring-2 focus:ring-[#00ADB5] dark:bg-gray-700 dark:text-white dark:border-gray-600"
+                className="input input-bordered focus:outline-none focus:ring-2 focus:ring-gray-700 bg-gray-800 text-white"
                 required
               />
               <button
                 type="button"
                 onClick={() => setShowPassword(!showPassword)}
-                className="absolute right-4 bottom-12 text-[#00ADB5]"
+                className="absolute right-4 bottom-12 text-[#ff3700d7]"
               >
                 {showPassword ? <FaEyeSlash /> : <FaEye />}
               </button>
               <label className="label">
                 <a
                   onClick={handleForgetPassword}
-                  className="label-text-alt link link-hover text-[#00ADB5] text-sm font-medium dark:text-[#00ADB5] dark:hover:text-[#00ADB5]"
+                  className="label-text-alt link link-hover text-base-300 text-sm font-medium "
                 >
                   Forgot password?
                 </a>
@@ -118,16 +118,16 @@ const Login = () => {
 
             <div className="form-control mt-6">
               <button
-                className="btn border-none bg-gradient-to-r from-[#00ADB5] to-[#008C8C] text-white hover:bg-gradient-to-l hover:bg-[#008C8C] transition-all duration-300 font-semibold dark:bg-gradient-to-r dark:from-[#00ADB5] dark:to-[#008C8C] dark:hover:bg-gradient-to-l dark:hover:bg-[#008C8C]"
+                className="btn border-none bg-gradient-to-r from-[#FF3600] to-[#ff3700d7] text-white hover:bg-gradient-to-l  transition-all duration-300 font-semibold  "
                 disabled={loading}
               >
                 {loading ? "Loading..." : "Login"}
               </button>
             </div>
 
-            <p className="text-center mt-4 font-medium text-gray-700 dark:text-gray-300">
+            <p className="text-center mt-4 font-medium text-base-300">
               Don't have an account?
-              <Link to="/register" className="text-[#00ADB5] underline dark:text-[#00ADB5]">
+              <Link to="/register" className="text-[#ff3700d7] underline dark:text-[#00ADB5]">
                 Register
               </Link>
             </p>
@@ -136,7 +136,7 @@ const Login = () => {
           <div className="mb-5 text-center">
             <button
               onClick={handleGoogleSignIn}
-              className="btn btn-ghost text-gray-700 dark:text-gray-300 dark:hover:text-white hover:text-[#00ADB5] border-gray-300 dark:border-gray-600"
+              className="btn btn-ghost text-gray-300 border-gray-300 hover:border-gray-600"
               disabled={loading}
             >
               <div className="flex justify-center items-center space-x-2">
