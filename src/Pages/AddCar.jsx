@@ -6,8 +6,10 @@ import "react-datepicker/dist/react-datepicker.css";
 import Swal from "sweetalert2";
 import axios from "axios";
 import { AuthContext } from "../Provider/AuthProvider";
+import { useNavigate } from "react-router-dom";
 
 const AddCar = () => {
+  const navigate = useNavigate()
   const { user } = useContext(AuthContext);
   const [image, setImage] = useState(null);
   const [availability, setAvailability] = useState(new Date());
@@ -103,6 +105,8 @@ const AddCar = () => {
           confirmButtonText: "Close",
           confirmButtonColor: "#008C8C",
         });
+
+        navigate("/mycars");
 
         // Reset form and image
         form.reset();

@@ -50,8 +50,7 @@ const MyCars = () => {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`/car/${id}`);
-      toast.success("Car Deleted Successfully!");
+      await axios.delete(`${import.meta.env.VITE_API_URL}/car/${id}`);
       fetchAllCars();
     } catch (err) {
       console.error(err);
@@ -103,7 +102,7 @@ const MyCars = () => {
     e.preventDefault();
     if (!selectedCar) return;
     try {
-      await axios.put(`/car/${selectedCar._id}`, selectedCar);
+      await axios.put(`${import.meta.env.VITE_API_URL}/update-car/${selectedCar._id}`, selectedCar);
       toast.success("Car updated successfully!");
       fetchAllCars();
       setSelectedCar(null);
