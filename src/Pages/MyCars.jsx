@@ -10,6 +10,7 @@ import toast from "react-hot-toast";
 import DatePicker from "react-datepicker";
 import { useDropzone } from "react-dropzone";
 import "react-datepicker/dist/react-datepicker.css";
+import useAxiosSecure from "../Hooks/useAxiosSecure";
 
 const MyCars = () => {
   const { user } = useContext(AuthContext);
@@ -17,6 +18,7 @@ const MyCars = () => {
   const [selectedCar, setSelectedCar] = useState(null);
   const [uploading, setUploading] = useState(false);
   const [sortOption, setSortOption] = useState("");
+  const axiosSecure = useAxiosSecure()
 
   const imageBBApiKey = "6822ad464ff71184fd2149759b3bafd9";
 
@@ -28,8 +30,8 @@ const MyCars = () => {
 
   const fetchAllCars = async () => {
     try {
-      const { data } = await axios.get(
-        `${import.meta.env.VITE_API_URL}/mycars/${user?.email}`
+      const { data } = await axiosSecure.get(
+        `/mycars/${user?.email}`
       );
 
       if (sortOption === "priceAsc") {

@@ -28,8 +28,8 @@ const Navbar = () => {
           to="/"
           className={({ isActive }) =>
             isActive
-              ? "text-[#00ADB5] font-semibold underline"
-              : "text-gray-700 dark:text-blue-50 dark:hover:text-[#00ADB5] hover:text-[#00ADB5] font-semibold transition-all duration-200"
+              ? "text-[#FF3600] font-semibold underline"
+              : "text-base-200 hover:text-[#FF3600] font-semibold transition-all duration-200"
           }
         >
           Home
@@ -40,8 +40,8 @@ const Navbar = () => {
           to="/availablecars"
           className={({ isActive }) =>
             isActive
-              ? "text-[#00ADB5] font-semibold underline"
-              : "text-gray-700 dark:text-blue-50 dark:hover:text-[#00ADB5] hover:text-[#00ADB5] font-semibold transition-all duration-200"
+              ? "text-[#FF3600] font-semibold underline"
+              : "text-base-200  hover:text-[#FF3600] font-semibold transition-all duration-200"
           }
         >
           Available Cars
@@ -54,8 +54,8 @@ const Navbar = () => {
               to="/addcar"
               className={({ isActive }) =>
                 isActive
-                  ? "text-[#00ADB5] font-semibold underline"
-                  : "text-gray-700 dark:text-blue-50 dark:hover:text-[#00ADB5] hover:text-[#00ADB5] font-semibold transition-all duration-200"
+                  ? "text-[#FF3600] font-semibold underline"
+                  : "text-base-200  hover:text-[#FF3600] font-semibold transition-all duration-200"
               }
             >
               Add Car
@@ -66,8 +66,8 @@ const Navbar = () => {
               to="/mycars"
               className={({ isActive }) =>
                 isActive
-                  ? "text-[#00ADB5] font-semibold underline"
-                  : "text-gray-700 dark:text-blue-50 dark:hover:text-[#00ADB5] hover:text-[#00ADB5] font-semibold transition-all duration-200"
+                  ? "text-[#FF3600] font-semibold underline"
+                  : "text-base-200  hover:text-[#FF3600] font-semibold transition-all duration-200"
               }
             >
               My Cars
@@ -78,8 +78,8 @@ const Navbar = () => {
               to="/mybookings"
               className={({ isActive }) =>
                 isActive
-                  ? "text-[#00ADB5] font-semibold underline"
-                  : "text-gray-700 dark:text-blue-50 dark:hover:text-[#00ADB5] hover:text-[#00ADB5] font-semibold transition-all duration-200"
+                  ? "text-[#FF3600] font-semibold underline"
+                  : "text-base-200  hover:text-[#FF3600] font-semibold transition-all duration-200"
               }
             >
               My Bookings
@@ -104,7 +104,7 @@ const Navbar = () => {
 
   return (
     <div
-      className={`w-full mx-auto bg-gradient-to-r from-white via-[#E0F7F9] to-[#F0FCFC] md:p-2 max-w-screen-2xl`}
+      className={`w-full mx-auto bg-gray-950 md:p-2 max-w-screen-2xl`}
     >
       <div className="navbar w-full md:w-11/12 mx-auto pt-4 pb-4">
         <div className="navbar-start">
@@ -115,7 +115,7 @@ const Navbar = () => {
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5 dark:text-white"
+                className="h-5 w-5 text-white"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -129,16 +129,16 @@ const Navbar = () => {
               </svg>
             </button>
             {isMenuOpen && (
-              <ul className="menu menu-sm dropdown-content bg-base-100 dark:bg-slate-800 rounded-box z-[1] mt-3 w-52 p-2 shadow">
+              <ul className="menu menu-sm dropdown-content bg-gray-800 rounded-box z-[1] mt-3 w-52 p-2 shadow">
                 {links}
               </ul>
             )}
           </div>
           <Link
             to="/"
-            className="btn btn-ghost text-2xl text-[#00ADB5] font-bold flex justify-center items-center"
+            className="btn btn-ghost text-2xl text-[#FF3600] font-bold flex justify-center items-center"
           >
-            <p className="text-lg md:text-2xl">NeoDrive</p>
+            <p className="text-lg md:text-2xl">NEO<span className="text-base-200">DRIVE</span> </p>
           </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
@@ -180,7 +180,7 @@ const Navbar = () => {
                     <div className="card-actions">
                       <button
                         onClick={handleSignOut}
-                        className="btn bg-gradient-to-r from-[#00ADB5] to-[#008C8C] text-white hover:bg-gradient-to-l hover:bg-[#008C8C] transition-all duration-300 border-none btn-block w-full mt-3"
+                        className="btn bg-gradient-to-r from-[#FF3600] to-[#ff3700d7] text-white hover:bg-gradient-to-l  transition-all duration-300 border-none btn-block w-full mt-3"
                       >
                         Sign out
                       </button>
@@ -192,13 +192,13 @@ const Navbar = () => {
           ) : (
             <>
               <Link
-                className="btn btn-sm md:btn-md mr-2 bg-gradient-to-r from-[#00ADB5] to-[#008C8C] text-white hover:bg-gradient-to-l hover:bg-[#008C8C] transition-all duration-300 hidden md:flex border-none"
+                className="btn btn-sm md:btn-md mr-2 bg-gradient-to-r from-[#FF3600] to-[#ff3700d7] text-white hover:bg-gradient-to-l  transition-all duration-300 hidden md:flex border-none"
                 to="/Register"
               >
                 <FaUser className="mr-1" /> Sign up
               </Link>
               <Link
-                className="btn btn-sm md:btn-md font-bold bg-gradient-to-r from-[#00ADB5] to-[#008C8C] text-white hover:bg-gradient-to-l hover:bg-[#008C8C] transition-all duration-300 border-none"
+                className="btn btn-sm md:btn-md font-bold bg-gradient-to-r from-[#FF3600] to-[#ff3700d7] text-white hover:bg-gradient-to-l  transition-all duration-300 border-none"
                 to="/login"
               >
                 <LuLogIn className="mr-1" /> Login

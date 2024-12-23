@@ -7,12 +7,14 @@ import Swal from "sweetalert2";
 import axios from "axios";
 import { AuthContext } from "../Provider/AuthProvider";
 import { useNavigate } from "react-router-dom";
+import useAxiosSecure from "../Hooks/useAxiosSecure";
 
 const AddCar = () => {
   const navigate = useNavigate()
   const { user } = useContext(AuthContext);
   const [image, setImage] = useState(null);
   const [availability, setAvailability] = useState(new Date());
+  const axiosSecure = useAxiosSecure();
 
   const onDrop = (acceptedFiles) => {
     const file = acceptedFiles[0];
@@ -95,7 +97,7 @@ const AddCar = () => {
 
       // Making a POST request to save the car data
 
-      const response = await axios.post(`${import.meta.env.VITE_API_URL}/addcar`, carData);
+      const response = await axiosSecure.post(`/addcar`, carData);
 
       if (response.data.insertedId) {
         Swal.fire({

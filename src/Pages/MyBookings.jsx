@@ -5,6 +5,7 @@ import toast from "react-hot-toast";
 import { AuthContext } from "../Provider/AuthProvider";
 import { FaCalendarAlt, FaTrashAlt } from "react-icons/fa";
 import Swal from "sweetalert2";
+import useAxiosSecure from "../Hooks/useAxiosSecure";
 
 const MyBookings = () => {
   const { user } = useContext(AuthContext);
@@ -13,6 +14,7 @@ const MyBookings = () => {
   const [selectedBooking, setSelectedBooking] = useState(null); 
   const [isModalOpen, setModalOpen] = useState(false);
   const [newBookingDate, setNewBookingDate] = useState(""); 
+  const axiosSecure = useAxiosSecure();
 
   useEffect(() => {
     if (user) {
@@ -23,8 +25,8 @@ const MyBookings = () => {
   const fetchBookings = async () => {
     try {
       setLoading(true);
-      const { data } = await axios.get(
-        `${import.meta.env.VITE_API_URL}/bookings/${user?.email}`
+      const { data } = await axiosSecure.get(
+        `/bookings/${user?.email}`
       );
       setBookings(data);
     } catch (err) {
