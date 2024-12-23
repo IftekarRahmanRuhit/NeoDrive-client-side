@@ -1,157 +1,5 @@
-// import { useContext, useEffect, useState } from "react";
-// import { useParams, useNavigate } from "react-router-dom";
-// import { AuthContext } from "../Provider/AuthProvider";
-// import axios from "axios";
-// import toast from "react-hot-toast";
-// import { FaCalendarAlt, FaInfoCircle, FaStar } from "react-icons/fa";
-
-// const CarDetails = () => {
-//   const { id } = useParams();
-//   const navigate = useNavigate();
-//   const { user } = useContext(AuthContext);
-//   const [car, setCar] = useState({});
-//   const [isModalOpen, setIsModalOpen] = useState(false);
-
-//   useEffect(() => {
-//     fetchCarData();
-//   }, [id]);
-
-//   const fetchCarData = async () => {
-//     try {
-//       const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/cardetails/${id}`);
-//       setCar(data);
-//     } catch (error) {
-//       console.error("Failed to fetch car data:", error);
-//       toast.error("Error fetching car data");
-//     }
-//   };
-
-//   const {
-//     carModel,
-//     dailyRentalPrice,
-//     availability,
-//     features = [],
-//     description,
-//     _id,
-//     image,
-//     agent,
-//   } = car;
-//   const handleBooking = async () => {
-
-//     if (!user) {
-//       return toast.error("Please log in to book a car.");
-//     }
-
-//     if (user?.email === agent?.email)
-//         return toast.error('Action not permitted!')
-
-//     try {
-//       const bookingData = {
-//         carId: _id,
-//         carModel,
-//         dailyRentalPrice,
-//         availability,
-//         image,
-//         status: 'Pending',
-//         agent: agent?.email,
-//       };
-
-//       await axios.post(`${import.meta.env.VITE_API_URL}/bookings`, bookingData);
-//       toast.success("Car booked successfully!");
-//       setIsModalOpen(false);
-//       navigate("/my-bookings");
-//     } catch (error) {
-//       console.error("Failed to book the car:", error);
-//       toast.error("Booking failed. Please try again.");
-//     }
-//   };
-
-//   // Format the availability date
-//   const formattedAvailability = availability
-//     ? new Date(availability).toLocaleDateString("en-US", {
-//         year: "numeric",
-//         month: "long",
-//         day: "numeric",
-//       })
-//     : "Unavailable";
-
-//   return (
-//     <div className="container mx-auto px-4 py-8">
-//       <div className="flex flex-col md:flex-row bg-gray-100 rounded-lg shadow-lg overflow-hidden gap-8">
-//         {/* Left Section: Car Details */}
-//         <div className="p-6 md:w-1/2">
-//           <h1 className="text-4xl font-bold mb-4">{carModel}</h1>
-//           <p className="text-lg font-semibold text-orange-600 mb-6">
-//             ${dailyRentalPrice} <span className="text-gray-600">/ Per Day</span>
-//           </p>
-//           <div className="space-y-4">
-//             <p className="flex items-center text-lg">
-//               <FaCalendarAlt className="mr-3 text-orange-500" />
-//               Availability: {formattedAvailability}
-//             </p>
-//             <p className="flex items-center text-lg">
-//               <FaInfoCircle className="mr-3 text-orange-500" /> Description: {description}
-//             </p>
-//             <p className="flex items-center text-lg">
-//               <FaStar className="mr-3 text-orange-500" /> Features:
-//             </p>
-//             <ul className="list-disc ml-8 text-gray-700">
-//               {features.map((feature, index) => (
-//                 <li key={index}>{feature}</li>
-//               ))}
-//             </ul>
-//           </div>
-
-//           {/* Book Now Button */}
-//           <button
-//             onClick={() => setIsModalOpen(true)}
-//             className="mt-8 px-6 py-3 bg-orange-600 text-white rounded-lg text-lg hover:bg-orange-700"
-//           >
-//             Book Now
-//           </button>
-//         </div>
-
-//         {/* Right Section: Car Image */}
-//         <div className="md:w-1/2 bg-gray-200">
-//           <img
-//             src={image || "/placeholder.jpg"}
-//             alt={carModel}
-//             className="w-full h-full object-cover"
-//           />
-//         </div>
-//       </div>
-
-//       {/* Booking Modal */}
-//       {isModalOpen && (
-//         <div className="fixed inset-0 bg-gray-800 bg-opacity-75 flex items-center justify-center">
-//           <div className="bg-white p-6 rounded-lg shadow-lg max-w-sm w-full">
-//             <h2 className="text-2xl font-bold mb-4">Confirm Booking</h2>
-//             <p className="mb-2">Car Model: {carModel}</p>
-//             <p className="mb-2">Price per Day: ${dailyRentalPrice}</p>
-//             <p className="mb-4">Availability: {formattedAvailability}</p>
-//             <button
-//               onClick={handleBooking}
-//               className="block w-full px-4 py-2 bg-green-600 text-white rounded-lg text-lg mb-4 hover:bg-green-700"
-//             >
-//               Confirm Booking
-//             </button>
-//             <button
-//               onClick={() => setIsModalOpen(false)}
-//               className="block w-full px-4 py-2 bg-gray-400 text-white rounded-lg text-lg hover:bg-gray-500"
-//             >
-//               Cancel
-//             </button>
-//           </div>
-//         </div>
-//       )}
-//     </div>
-//   );
-// };
-
-// export default CarDetails;
-
 import { useContext, useEffect, useState } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, Link } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
 import axios from "axios";
 import toast from "react-hot-toast";
@@ -214,23 +62,27 @@ const CarDetails = () => {
   const confirmBooking = async () => {
     try {
       const bookingData = {
-        email:user?.email,
+        email: user?.email,
         carId: _id,
         carModel,
         dailyRentalPrice,
         availability,
         image,
+        bookingDate: new Date().toISOString(),
         status: "Pending",
         agent: agent?.email,
       };
 
-      await axios.post(`${import.meta.env.VITE_API_URL}/addbooking`, bookingData);
+      await axios.post(
+        `${import.meta.env.VITE_API_URL}/addbooking`,
+        bookingData
+      );
       toast.success("Car booked successfully!");
       setIsModalOpen(false);
-    //   navigate("/my-bookings");
+      //   navigate("/my-bookings");
     } catch (error) {
       console.error("Failed to book the car:", error);
-      toast.error(error?.response?.data)
+      toast.error(error?.response?.data);
     }
   };
 
@@ -298,12 +150,15 @@ const CarDetails = () => {
             <p className="mb-2">Car Model: {carModel}</p>
             <p className="mb-2">Price per Day: ${dailyRentalPrice}</p>
             <p className="mb-4">Availability: {formattedAvailability}</p>
-            <button
-              onClick={confirmBooking}
-              className="block w-full px-4 py-2 bg-green-600 text-white rounded-lg text-lg mb-4 hover:bg-green-700"
-            >
-              Confirm Booking
-            </button>
+            <Link to ='/mybookings'>
+              {" "}
+              <button
+                onClick={confirmBooking}
+                className="block w-full px-4 py-2 bg-green-600 text-white rounded-lg text-lg mb-4 hover:bg-green-700"
+              >
+                Confirm Booking
+              </button>{" "}
+            </Link>
             <button
               onClick={() => setIsModalOpen(false)}
               className="block w-full px-4 py-2 bg-gray-400 text-white rounded-lg text-lg hover:bg-gray-500"

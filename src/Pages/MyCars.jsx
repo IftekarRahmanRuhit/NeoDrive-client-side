@@ -123,7 +123,7 @@ const MyCars = () => {
       <div className="flex items-center justify-between">
         <h2 className="text-lg font-medium text-gray-800">My Cars</h2>
         <Link
-          to="/add-car"
+          to="/addcar"
           className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
         >
           Add Car
@@ -148,7 +148,7 @@ const MyCars = () => {
         <div className="mt-6 text-center">
           <p className="text-gray-600">No cars added yet.</p>
           <Link
-            to="/add-car"
+            to="/addcar"
             className="text-blue-500 underline hover:text-blue-700"
           >
             Add your first car
@@ -177,11 +177,11 @@ const MyCars = () => {
                       className="w-16 h-16 rounded"
                     />
                   </td>
-                  <td className="px-4 py-2">{car.carModel}</td>
-                  <td className="px-4 py-2">${car.dailyRentalPrice}</td>
-                  <td className="px-4 py-2">{format(parseISO(car.availability), "P")}</td>
-                  <td className="px-4 py-2">{format(parseISO(car.dateAdded), "P")}</td>
-                  <td className="px-4 py-2">
+                  <td className="px-4 py-2 text-center">{car.carModel}</td>
+                  <td className="px-4 py-2 text-center">${car.dailyRentalPrice}</td>
+                  <td className="px-4 py-2 text-center">{format(parseISO(car.availability), "P")}</td>
+                  <td className="px-4 py-2 text-center">{format(parseISO(car.dateAdded), "P")}</td>
+                  <td className="px-4 py-2 text-center">
                     <button
                       onClick={() => setSelectedCar(car)}
                       className="text-blue-500 hover:underline"
