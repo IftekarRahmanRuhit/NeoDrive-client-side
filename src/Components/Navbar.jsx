@@ -7,12 +7,13 @@ import { LuLogIn } from "react-icons/lu";
 import { AuthContext } from "../Provider/AuthProvider";
 
 const Navbar = () => {
-  const { user, signOutUser, loading } = useContext(AuthContext);
+  const { user, signOutUser, loading,setLoading } = useContext(AuthContext);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const handleSignOut = () => {
     signOutUser()
       .then(() => {
+        
         toast.success("Sign out successful");
       })
       .catch((error) => {
