@@ -102,7 +102,7 @@ const MyBookings = () => {
   return (
 <div className="max-w-screen-2xl mx-auto">
 <div className="p-6 bg-[#191919] min-h-screen pb-24 ">
-      <h1 className="text-3xl font-bold mb-10 mt-6 w-11/12 mx-auto text-gray-100 animate__animated animate__backInDown">My Bookings</h1>
+      <h1 className="text-3xl font-bold mb-10 mt-6 w-11/12 mx-auto text-gray-100 ">My Bookings</h1>
       {loading ? (
          <div className="text-center">
           <span className=" text-center mx-auto items-center loading loading-bars loading-md text-white"></span>

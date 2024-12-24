@@ -11,6 +11,7 @@ import MyBookings from "../Pages/MyBookings";
 import PrivateRoute from "./PrivateRoute";
 import ForgetPassword from "../Pages/Authentication/ForgetPassword";
 import CarDetails from "../Pages/CarDetails";
+import RevenueInsights from "../Pages/RevenueInsights";
 
 
 export const routes = createBrowserRouter([
@@ -55,6 +56,11 @@ export const routes = createBrowserRouter([
         {
             path: '/cardetails/:id',
             element: <CarDetails></CarDetails>
+        },
+        {
+            path: '/revenue',
+            element:<PrivateRoute><RevenueInsights></RevenueInsights></PrivateRoute>,
+            loader: ()=> fetch(`${import.meta.env.VITE_API_URL}/cars`)
         }
        
         ]

@@ -85,6 +85,18 @@ const Navbar = () => {
               My Bookings
             </NavLink>
           </li>
+          <li>
+            <NavLink
+              to="/revenue"
+              className={({ isActive }) =>
+                isActive
+                  ? "text-[#FF3600] font-semibold underline"
+                  : "text-base-200  hover:text-[#FF3600] font-semibold transition-all duration-200"
+              }
+            >
+              Revenue Insights  
+            </NavLink>
+          </li>
         </>
       )}
     </>
