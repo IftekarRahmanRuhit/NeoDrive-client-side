@@ -156,15 +156,17 @@ const MyBookings = () => {
           <td className="px-4 py-2 border-b border-gray-600 text-center align-middle">
             <div className="space-x-2">
               <button
+              disabled={booking.status === 'Confirmed' || booking.status=== 'Canceled'}
                 onClick={() => openModal(booking)}
-                className="inline-flex font-medium items-center px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+                className="disabled:cursor-not-allowed inline-flex font-medium items-center px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
               >
                 <FaCalendarAlt className="mr-2" />
                 Modify Date
               </button>
               <button
+              disabled={booking.status === 'Confirmed' || booking.status=== 'Canceled'}
                 onClick={() => confirmCancelBooking(booking._id)}
-                className="inline-flex font-medium items-center px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600"
+                className="disabled:cursor-not-allowed inline-flex font-medium items-center px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600"
               >
                 <FaTrashAlt className="mr-2" />
                 Cancel

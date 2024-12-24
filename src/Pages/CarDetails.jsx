@@ -180,16 +180,16 @@ const CarDetails = () => {
         {/* Booking Modal */}
         {isModalOpen && (
           <div className="fixed inset-0 bg-gray-800 bg-opacity-75 flex items-center justify-center">
-            <div className="bg-white p-6 rounded-lg shadow-lg max-w-sm w-full">
+            <div className="bg-gray-300 p-6 rounded-lg shadow-lg max-w-sm w-full">
               <h2 className="text-2xl font-bold mb-4">Confirm Booking</h2>
-              <p className="mb-2">Car Model: {carModel}</p>
-              <p className="mb-2">Price per Day: ${dailyRentalPrice}</p>
-              <p className="mb-4">Availability: {formattedAvailability}</p>
+              <p className="mb-2 font-semibold text-gray-800">Car Model: {carModel}</p>
+              <p className="mb-2 font-semibold text-gray-800">Price per Day: ${dailyRentalPrice}</p>
+              <p className="mb-4 font-semibold text-gray-800">Availability: {formattedAvailability}</p>
               <Link to="">
                 {" "}
                 <button
                   onClick={confirmBooking}
-                  className="block w-full px-4 py-2 bg-green-600 text-white rounded-lg text-lg mb-4 hover:bg-green-700"
+                  className="block w-full px-4 py-2  bg-gradient-to-r from-[#FF3600] to-[#ff3700d7]  hover:bg-gradient-to-l font-semibold text-white rounded-lg text-lg mb-4 "
                 >
                   Confirm Booking
                 </button>{" "}

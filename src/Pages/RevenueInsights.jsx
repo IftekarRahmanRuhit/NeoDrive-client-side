@@ -13,12 +13,12 @@ const RevenueInsights = () => {
   const data = useLoaderData();
 
   // Formating  and slice the data to show a maximum of 10 items
-  const formattedData = data.slice(0, 10).map((item) => ({
+  const formattedData = data.slice(0, 9).map((item) => ({
     carModel: item.carModel,
     dailyRentalPrice: Number(item.dailyRentalPrice),
   }));
   return (
-    <div className="bg-[#191919] p-5">
+    <div className="bg-[#191919] p-5 max-w-screen-2xl mx-auto">
       <div className="w-11/12 mx-auto max-w-screen-2xl pb-16 ">
         <h2 className=" font-bold text-3xl text-gray-300 mb-8">
           Revenue Insights

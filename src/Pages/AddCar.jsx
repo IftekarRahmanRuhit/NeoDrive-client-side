@@ -128,7 +128,7 @@ const AddCar = () => {
   };
 
   return (
-    <div className="bg-[#191919] pb-20">
+    <div className="bg-[#191919] pb-20 max-w-screen-2xl mx-auto">
       <div>
         <div className="p-10">
           <p className="text-4xl font-bold text-center mb-4 text-[#ff3700d7] animate__animated animate__backInDown">
