@@ -121,7 +121,7 @@ const MyCars = () => {
     <div className="bg-[#191919] pb-28 max-w-screen-2xl mx-auto">
       <section className="container mx-auto pt-12 px-4 ">
         <div className="flex items-center justify-between">
-          <h2 className="text-3xl font-medium text-gray-100">My Cars</h2>
+          <h2 className="text-3xl font-bold text-gray-100 w-11/12 mx-auto">My Cars</h2>
           <Link
             to="/addcar"
             className="bg-gradient-to-r from-[#FF3600] to-[#ff3700d7] text-white hover:bg-gradient-to-l font-semibold px-4 py-2 rounded "
@@ -159,22 +159,22 @@ const MyCars = () => {
             <table className="table-auto w-full bg-black border border-gray-700 rounded-lg shadow-lg">
               <thead className="bg-black">
                 <tr>
-                  <th className="px-4 py-2 text-white text-center text-xl">
+                  <th className="px-4 py-4 text-white text-center text-xl">
                     Car Image
                   </th>
-                  <th className="px-4 py-2 text-white text-center text-xl">
+                  <th className="px-4 py-4 text-white text-center text-xl">
                     Car Model
                   </th>
-                  <th className="px-4 py-2 text-white text-center text-xl">
+                  <th className="px-4 py-4 text-white text-center text-xl">
                     Daily Rental Price
                   </th>
-                  <th className="px-4 py-2 text-white text-center text-xl">
+                  <th className="px-4 py-4 text-white text-center text-xl">
                     Availability
                   </th>
-                  <th className="px-4 py-2 text-white text-center text-xl">
+                  <th className="px-4 py-4 text-white text-center text-xl">
                     Date Added
                   </th>
-                  <th className="px-4 py-2 text-white text-center text-xl">
+                  <th className="px-4 py-4 text-white text-center text-xl">
                     Actions
                   </th>
                 </tr>

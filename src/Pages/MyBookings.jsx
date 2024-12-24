@@ -99,80 +99,86 @@ const MyBookings = () => {
   };
 
   return (
-    <div className="p-6 bg-gray-100 min-h-screen">
-      <h1 className="text-2xl font-bold mb-6">My Bookings</h1>
+<div className="max-w-screen-2xl mx-auto">
+<div className="p-6 bg-[#191919] min-h-screen pb-24 ">
+      <h1 className="text-3xl font-bold mb-10 mt-6 w-11/12 mx-auto text-gray-100">My Bookings</h1>
       {loading ? (
-        <p>Loading...</p>
+         <div className="text-center">
+          <span className=" text-center mx-auto items-center loading loading-bars loading-md text-white"></span>
+         </div>
       ) : (
-        <div className="overflow-x-auto">
-          <table className="min-w-full bg-white border border-gray-300 shadow-md rounded-lg">
-            <thead>
-              <tr>
-                <th className="px-4 py-2 border-b">Car Image</th>
-                <th className="px-4 py-2 border-b">Car Model</th>
-                <th className="px-4 py-2 border-b">Booking Date</th>
-                <th className="px-4 py-2 border-b">Total Price</th>
-                <th className="px-4 py-2 border-b">Status</th>
-                <th className="px-4 py-2 border-b text-center">Actions</th>
-              </tr>
-            </thead>
-            <tbody>
-              {bookings.map((booking) => (
-                <tr key={booking._id} className="hover:bg-gray-100">
-                  <td className="px-4 py-2 border-b">
-                    <img
-                      src={booking.image}
-                      alt="Car"
-                      className="w-16 h-12 object-cover rounded"
-                    />
-                  </td>
-                  <td className="px-4 py-2 border-b text-center">{booking.carModel}</td>
-                  <td className="px-4 py-2 border-b text-center">
-                    {new Date(booking.bookingDate).toLocaleString()}
-                  </td>
-                  <td className="px-4 py-2 border-b text-center">
-                    ${Math.abs(booking.dailyRentalPrice)}
-                  </td>
-                  <td className="px-4 py-2 border-b text-center">
-                    <span
-                      className={`px-2 py-1 rounded ${
-                        booking.status === "Confirmed"
-                          ? "bg-green-100 text-green-600"
-                          : booking.status === "Canceled"
-                          ? "bg-red-100 text-red-600"
-                          : "bg-yellow-100 text-yellow-600"
-                      }`}
-                    >
-                      {booking.status}
-                    </span>
-                  </td>
-                  <td className="px-4 py-2 text-center flex justify-center items-center">
-                    <button
-                    // disabled={booking.status === "Confirmed" || booking.status === "Canceled"}
-                      onClick={() => openModal(booking)}
-                      className="btn-sm flex items-center justify-center px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 mr-2 disabled:cursor-not-allowed"
-                    >
-                      <FaCalendarAlt className="mr-1" />
-                      Modify Date
-                    </button>
-                    <button
-                    //  disabled={booking.status === "Confirmed" || booking.status === "Canceled"}
-                      onClick={() => confirmCancelBooking(booking._id)}
-                      className="btn-sm flex items-center justify-center px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600 disabled:cursor-not-allowed"
-                    >
-                      <FaTrashAlt className="mr-1" />
-                      Cancel
-                    </button>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
+
+        <div className="overflow-x-auto w-11/12 mx-auto">
+  <table className="min-w-full bg-black border border-gray-700 shadow-md rounded-lg">
+    <thead className="bg-black text-white">
+      <tr>
+        <th className="px-4 py-4 border-b border-gray-600 text-center text-xl">Car Image</th>
+        <th className="px-4 py-4 border-b border-gray-600 text-center text-xl">Car Model</th>
+        <th className="px-4 py-4 border-b border-gray-600 text-center text-xl">Booking Date</th>
+        <th className="px-4 py-4 border-b border-gray-600 text-center text-xl">Total Price</th>
+        <th className="px-4 py-4 border-b border-gray-600 text-center text-xl">Status</th>
+        <th className="px-4 py-4 border-b border-gray-600 text-center text-xl">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {bookings.map((booking) => (
+        <tr key={booking._id} className="hover:bg-[#2C2C2C]">
+          <td className="px-4 py-2 border-b border-gray-600">
+            <img
+              src={booking.image}
+              alt="Car"
+              className="w-28 h-20 mx-auto object-cover rounded"
+            />
+          </td>
+          <td className="px-4 py-2 border-b border-gray-600 font-semibold text-gray-300 text-center">
+            {booking.carModel}
+          </td>
+          <td className="px-4 py-2 border-b border-gray-600 font-semibold text-gray-300 text-center">
+            {new Date(booking.bookingDate).toLocaleString()}
+          </td>
+          <td className="px-4 py-2 border-b border-gray-600 font-semibold text-gray-300 text-center">
+            ${Math.abs(booking.dailyRentalPrice)}
+          </td>
+          <td className="px-4 py-2 border-b border-gray-600  text-center">
+            <span
+              className={`px-2 py-1 rounded ${
+                booking.status === "Confirmed"
+                  ? "bg-green-500 text-white"
+                  : booking.status === "Canceled"
+                  ? "bg-red-500 text-white"
+                  : "bg-yellow-500 text-white"
+              }`}
+            >
+              {booking.status}
+            </span>
+          </td>
+          <td className="px-4 py-2 border-b border-gray-600 text-center align-middle">
+            <div className="space-x-2">
+              <button
+                onClick={() => openModal(booking)}
+                className="inline-flex font-medium items-center px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+              >
+                <FaCalendarAlt className="mr-2" />
+                Modify Date
+              </button>
+              <button
+                onClick={() => confirmCancelBooking(booking._id)}
+                className="inline-flex font-medium items-center px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600"
+              >
+                <FaTrashAlt className="mr-2" />
+                Cancel
+              </button>
+            </div>
+          </td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</div>
       )}
       {isModalOpen && selectedBooking && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
-          <div className="bg-white p-6 rounded shadow-md w-1/3">
+          <div className="bg-gray-200 p-6 rounded shadow-md w-1/3">
             <h3 className="text-lg font-bold mb-4">Modify Booking Date</h3>
             <input
               type="datetime-local"
@@ -190,7 +196,7 @@ const MyBookings = () => {
               </button>
               <button
                 onClick={handleConfirmModify}
-                className="px-4 py-2 bg-blue-500 text-white rounded"
+                className="px-4 py-2 bg-gradient-to-r from-[#FF3600] to-[#ff3700d7] text-white hover:bg-gradient-to-l  rounded"
               >
                 Confirm
               </button>
@@ -199,6 +205,7 @@ const MyBookings = () => {
         </div>
       )}
     </div>
+</div>
   );
 };
 
