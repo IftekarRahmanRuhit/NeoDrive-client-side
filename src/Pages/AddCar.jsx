@@ -82,7 +82,7 @@ const AddCar = () => {
         carModel,
         dailyRentalPrice: parseFloat(dailyRentalPrice),
         vehicleRegistrationNumber,
-        features: features.split(","), // Converting string to array using 
+        features: features.split(',').map(feature => feature.trim()),// Converting string to array using 
         description,
         location,
         availability,

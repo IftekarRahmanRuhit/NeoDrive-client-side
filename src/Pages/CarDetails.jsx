@@ -4,6 +4,8 @@ import { AuthContext } from "../Provider/AuthProvider";
 import axios from "axios";
 import toast from "react-hot-toast";
 import { FaCalendarAlt, FaInfoCircle, FaStar } from "react-icons/fa";
+import bg from "../../public/bg.jpg"
+
 
 const CarDetails = () => {
   const { id } = useParams();
@@ -96,8 +98,31 @@ const CarDetails = () => {
     : "Unavailable";
 
   return (
-    <div className="container mx-auto px-4 py-8 bg-">
-      <div className="flex flex-col md:flex-row bg-gray-100 rounded-lg shadow-lg overflow-hidden gap-8">
+<div>
+  <div>
+  <div className="relative w-full h-64 sm:h-80 lg:h-96">
+  {/* Image */}
+  <img
+    src={bg}
+    alt="Background"
+    className="w-full h-full object-cover"
+  />
+
+  {/* Text Overlay */}
+  <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+    <div className="text-center text-white">
+      <h1 className="text-3xl sm:text-4xl lg:text-7xl font-bold mb-4">
+      {carModel}
+      </h1>
+      <p className="text-sm sm:text-base lg:text-lg">
+        <Link to='/' className="hover:text-[#FF3600]">Home</Link> / <Link to='/availablecars'  className="hover:text-[#FF3600]">Available Cars</Link> / <span className="text-[#FF3600]">{carModel}</span>
+      </p>
+    </div>
+  </div>
+</div>
+  </div>
+  <div className="px-4 py-8 bg-black">
+      <div className="flex flex-col md:flex-row bg-gray-950 rounded-lg shadow-lg overflow-hidden gap-8">
         {/* Left Section: Car Details */}
         <div className="p-6 md:w-1/2">
           <h1 className="text-4xl font-bold mb-4">{carModel}</h1>
@@ -169,6 +194,7 @@ const CarDetails = () => {
         </div>
       )}
     </div>
+</div>
   );
 };
 
