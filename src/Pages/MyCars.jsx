@@ -10,6 +10,7 @@ import { useDropzone } from "react-dropzone";
 import "react-datepicker/dist/react-datepicker.css";
 import useAxiosSecure from "../Hooks/useAxiosSecure";
 import { FaEdit, FaTrash } from "react-icons/fa";
+import "animate.css";
 
 const MyCars = () => {
   const { user } = useContext(AuthContext);
@@ -121,10 +122,10 @@ const MyCars = () => {
     <div className="bg-[#191919] pb-28 max-w-screen-2xl mx-auto">
       <section className="container mx-auto pt-12 px-4 ">
         <div className="flex items-center justify-between">
-          <h2 className="text-3xl font-bold text-gray-100 w-11/12 mx-auto">My Cars</h2>
+          <h2 className="text-3xl font-bold text-gray-100 w-11/12 mx-auto ">My Cars</h2>
           <Link
             to="/addcar"
-            className="bg-gradient-to-r from-[#FF3600] to-[#ff3700d7] text-white hover:bg-gradient-to-l font-semibold px-4 py-2 rounded "
+            className="bg-gradient-to-r from-[#FF3600] to-[#ff3700d7] text-white hover:bg-gradient-to-l font-semibold px-4 py-2 rounded  "
           >
             Add Car
           </Link>
@@ -134,7 +135,7 @@ const MyCars = () => {
           <select
             value={sortOption}
             onChange={(e) => setSortOption(e.target.value)}
-            className=" rounded p-2 bg-gray-950 text-white font-semibold"
+            className=" rounded p-2 bg-gray-950 text-white font-semibold "
           >
             <option value="">Sort By</option>
             <option value="priceAsc">Price (Lowest First)</option>
@@ -156,7 +157,7 @@ const MyCars = () => {
           </div>
         ) : (
           <div className="overflow-x-auto mt-6 w-11/12 mx-auto ">
-            <table className="table-auto w-full bg-black border border-gray-700 rounded-lg shadow-lg">
+            <table className="table-auto w-full bg-black border border-gray-700 rounded-lg shadow-lg animate__animated animate__fadeInUp">
               <thead className="bg-black">
                 <tr>
                   <th className="px-4 py-4 text-white text-center text-xl">
