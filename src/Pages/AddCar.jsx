@@ -1,4 +1,3 @@
-
 import React, { useState, useContext } from "react";
 import { useDropzone } from "react-dropzone";
 import DatePicker from "react-datepicker";
@@ -8,9 +7,10 @@ import axios from "axios";
 import { AuthContext } from "../Provider/AuthProvider";
 import { useNavigate } from "react-router-dom";
 import useAxiosSecure from "../Hooks/useAxiosSecure";
+import "animate.css";
 
 const AddCar = () => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const { user } = useContext(AuthContext);
   const [image, setImage] = useState(null);
   const [availability, setAvailability] = useState(new Date());
@@ -33,21 +33,22 @@ const AddCar = () => {
 
     try {
       // Sending the image to ImgBB
-      const response = await fetch("https://api.imgbb.com/1/upload?key=6822ad464ff71184fd2149759b3bafd9", {
-        method: "POST",
-        body: formData,
-      });
+      const response = await fetch(
+        "https://api.imgbb.com/1/upload?key=6822ad464ff71184fd2149759b3bafd9",
+        {
+          method: "POST",
+          body: formData,
+        }
+      );
 
       const data = await response.json(); // Parsing the response
       if (data.success) {
         // Successfully uploaded
         return data.data.url; // Getting the direct image URL
       } else {
-      
         throw new Error("Image upload failed");
       }
     } catch (error) {
-   
       Swal.fire({
         title: "Error",
         text: "Failed to upload image. Please try again.",
@@ -82,7 +83,7 @@ const AddCar = () => {
         carModel,
         dailyRentalPrice: parseFloat(dailyRentalPrice),
         vehicleRegistrationNumber,
-        features: features.split(',').map(feature => feature.trim()),// Converting string to array using 
+        features: features.split(",").map((feature) => feature.trim()), // Converting string to array using
         description,
         location,
         availability,
@@ -116,7 +117,6 @@ const AddCar = () => {
         setAvailability(new Date());
       }
     } catch (err) {
-     
       Swal.fire({
         title: "Error",
         text: "Failed to add car. Please try again.",
@@ -128,110 +128,137 @@ const AddCar = () => {
   };
 
   return (
-    <div className="bg-white dark:bg-gray-800 p-8 max-w-4xl mx-auto rounded-lg shadow-lg">
-      <h2 className="text-3xl font-bold text-center text-[#008C8C] mb-5">
-        Add a Car
-      </h2>
-      <form onSubmit={handleAddCar} className="space-y-6">
-        <div>
-          <label className="block text-sm font-medium">Car Model</label>
-          <input
-            type="text"
-            name="carModel"
-            placeholder="Enter car model"
-            className="w-full px-3 py-2 border rounded-md"
-            required
-          />
+    <div className="bg-[#191919] pb-20">
+      <div>
+        <div className="p-10">
+          <p className="text-4xl font-bold text-center mb-4 text-[#ff3700d7] animate__animated animate__backInDown">
+            Add Your Car
+          </p>
+          <p className="font-medium text-gray-300 text-center animate__animated animate__backInDown ">
+            List your car effortlessly, reach more renters, and maximize your
+            earnings by <br /> joining our trusted car-sharing platform today!
+          </p>
         </div>
-        <div>
-          <label className="block text-sm font-medium">Daily Rental Price</label>
-          <input
-            type="number"
-            name="dailyRentalPrice"
-            placeholder="Enter daily rental price"
-            className="w-full px-3 py-2 border rounded-md"
-            required
-          />
-        </div>
-        <div>
-          <label className="block text-sm font-medium">Availability Date</label>
-          <DatePicker
-            selected={availability}
-            onChange={(date) => setAvailability(date)}
-            className="w-full px-3 py-2 border rounded-md"
-          />
-        </div>
-        <div>
-          <label className="block text-sm font-medium">
-            Vehicle Registration Number
-          </label>
-          <input
-            type="text"
-            name="vehicleRegistrationNumber"
-            placeholder="Enter vehicle registration number"
-            className="w-full px-3 py-2 border rounded-md"
-            required
-          />
-        </div>
-        <div>
-          <label className="block text-sm font-medium">Features</label>
-          <input
-            type="text"
-            name="features"
-            placeholder="Enter features (comma-separated)"
-            className="w-full px-3 py-2 border rounded-md"
-          />
-        </div>
-        <div>
-          <label className="block text-sm font-medium">Description</label>
-          <textarea
-            name="description"
-            placeholder="Enter description"
-            className="w-full px-3 py-2 border rounded-md"
-            rows="4"
-            required
-          ></textarea>
-        </div>
-        <div>
-          <label className="block text-sm font-medium">Location</label>
-          <input
-            type="text"
-            name="location"
-            placeholder="Enter location"
-            className="w-full px-3 py-2 border rounded-md"
-            required
-          />
-        </div>
-        <div>
-          <label className="block text-sm font-medium">Image</label>
-          <div
-            {...getRootProps()}
-            className="border-dashed border-2 px-4 py-8 text-center rounded-md"
-          >
-            <input {...getInputProps()} />
-            <p>Drag and drop files here, or click to select a file</p>
+      </div>
+      <div className="bg-gradient-to-r from-gray-950 via-gray-900 to-black p-8 max-w-4xl mx-auto rounded-lg shadow-xl animate__animated animate__fadeInUp border-2 border-[#ff37004b] ">
+        <h2 className="text-3xl font-bold text-center text-[#ff3700d7] mb-5">
+          Add Your Car
+        </h2>
+        <form onSubmit={handleAddCar} className="space-y-6">
+          <div>
+            <label className="block text-lg font-medium  text-gray-300 mb-2">
+              Car Model
+            </label>
+            <input
+              type="text"
+              name="carModel"
+              placeholder="Enter car model"
+              className="w-full px-3 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-700 bg-gray-800 text-white"
+              required
+            />
           </div>
-          {image && (
-            <div className="mt-4">
-              <img
-                src={URL.createObjectURL(image)}
-                alt="Selected preview"
-                className="w-full h-32 object-cover rounded-md"
-              />
+          <div>
+            <label className="block text-lg font-medium  text-gray-300 mb-2">
+              Daily Rental Price
+            </label>
+            <input
+              type="number"
+              name="dailyRentalPrice"
+              placeholder="Enter daily rental price"
+              className="w-full px-3 py-2 focus:outline-none focus:ring-2 focus:ring-gray-700 bg-gray-800 text-white rounded-md "
+              required
+            />
+          </div>
+          <div>
+            <label className="block text-lg font-medium  text-gray-300 mb-2">
+              Availability Date
+            </label>
+            <DatePicker
+              selected={availability}
+              onChange={(date) => setAvailability(date)}
+              className="w-full px-3 py-2 focus:outline-none focus:ring-2 focus:ring-gray-700 bg-gray-800 text-white rounded-md"
+            />
+          </div>
+          <div>
+            <label className="block text-lg font-medium  text-gray-300 mb-2">
+              Vehicle Registration Number
+            </label>
+            <input
+              type="text"
+              name="vehicleRegistrationNumber"
+              placeholder="Enter vehicle registration number"
+              className="w-full px-3 py-2 focus:outline-none focus:ring-2 focus:ring-gray-700 bg-gray-800 text-white rounded-md"
+              required
+            />
+          </div>
+          <div>
+            <label className="block text-lg font-medium  text-gray-300 mb-2">
+              Features
+            </label>
+            <input
+              type="text"
+              name="features"
+              placeholder="Enter features (comma-separated)"
+              className="w-full px-3 py-2 focus:outline-none focus:ring-2 focus:ring-gray-700 bg-gray-800 text-white rounded-md"
+            />
+          </div>
+          <div>
+            <label className="block text-lg font-medium  text-gray-300 mb-2">
+              Description
+            </label>
+            <textarea
+              name="description"
+              placeholder="Enter description"
+              className="w-full px-3 py-2 focus:outline-none focus:ring-2 focus:ring-gray-700 bg-gray-800 text-white rounded-md"
+              rows="4"
+              required
+            ></textarea>
+          </div>
+          <div>
+            <label className="block text-lg font-medium  text-gray-300 mb-2">
+              Location
+            </label>
+            <input
+              type="text"
+              name="location"
+              placeholder="Enter location"
+              className="w-full px-3 py-2 focus:outline-none focus:ring-2 focus:ring-gray-700 bg-gray-800 text-white rounded-md"
+              required
+            />
+          </div>
+          <div>
+            <label className="block text-lg font-medium  text-gray-300 mb-2">
+              Image
+            </label>
+            <div
+              {...getRootProps()}
+              className="border-dashed border-2 px-4 py-8 text-center rounded-md"
+            >
+              <input {...getInputProps()} />
+              <p className="text-gray-300">
+                Drag and drop files here, or click to select a file
+              </p>
             </div>
-          )}
-        </div>
-        <button
-          type="submit"
-          className="w-full bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700"
-        >
-          Add Car
-        </button>
-      </form>
+            {image && (
+              <div className="mt-4">
+                <img
+                  src={URL.createObjectURL(image)}
+                  alt="Selected preview"
+                  className="w-full h-32 object-cover rounded-md"
+                />
+              </div>
+            )}
+          </div>
+          <button
+            type="submit"
+            className="w-full bg-gradient-to-r from-[#FF3600] to-[#ff3700d7] text-white hover:bg-gradient-to-l font-semibold py-2 rounded-md "
+          >
+            Add Car
+          </button>
+        </form>
+      </div>
     </div>
   );
 };
 
 export default AddCar;
-
-
