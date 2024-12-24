@@ -43,11 +43,11 @@ const AddCar = () => {
         // Successfully uploaded
         return data.data.url; // Getting the direct image URL
       } else {
-        console.error("Error uploading image:", data.error.message);
+      
         throw new Error("Image upload failed");
       }
     } catch (error) {
-      console.error("Error uploading image:", error);
+   
       Swal.fire({
         title: "Error",
         text: "Failed to upload image. Please try again.",
@@ -116,7 +116,7 @@ const AddCar = () => {
         setAvailability(new Date());
       }
     } catch (err) {
-      console.error(err);
+     
       Swal.fire({
         title: "Error",
         text: "Failed to add car. Please try again.",

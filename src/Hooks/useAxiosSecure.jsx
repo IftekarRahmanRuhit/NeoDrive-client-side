@@ -18,10 +18,10 @@ import { useEffect } from "react";
           return res
         },
         async error => {
-          console.log(
-            'error caught from our very own axios interceptor-->',
-            error.response
-          )
+          // console.log(
+          //   'error caught from our very own axios interceptor-->',
+          //   error.response
+          // )
           if (error.response.status === 401 || error.response.status === 403) {
             // logout
             signOutUser()

@@ -23,7 +23,7 @@ const CarDetails = () => {
       );
       setCar(data);
     } catch (error) {
-      console.error("Failed to fetch car data:", error);
+    
       toast.error("Error fetching car data");
     }
   };
@@ -79,9 +79,9 @@ const CarDetails = () => {
       );
       toast.success("Car booked successfully!");
       setIsModalOpen(false);
-      //   navigate("/my-bookings");
+        navigate("/mybookings");
     } catch (error) {
-      console.error("Failed to book the car:", error);
+     
       toast.error(error?.response?.data);
     }
   };
@@ -96,7 +96,7 @@ const CarDetails = () => {
     : "Unavailable";
 
   return (
-    <div className="container mx-auto px-4 py-8">
+    <div className="container mx-auto px-4 py-8 bg-">
       <div className="flex flex-col md:flex-row bg-gray-100 rounded-lg shadow-lg overflow-hidden gap-8">
         {/* Left Section: Car Details */}
         <div className="p-6 md:w-1/2">
@@ -150,7 +150,7 @@ const CarDetails = () => {
             <p className="mb-2">Car Model: {carModel}</p>
             <p className="mb-2">Price per Day: ${dailyRentalPrice}</p>
             <p className="mb-4">Availability: {formattedAvailability}</p>
-            <Link to ='/mybookings'>
+            <Link to =''>
               {" "}
               <button
                 onClick={confirmBooking}

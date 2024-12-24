@@ -30,7 +30,6 @@ const MyBookings = () => {
       );
       setBookings(data);
     } catch (err) {
-      console.error(err);
       toast.error("Failed to load bookings.");
     } finally {
       setLoading(false);
@@ -45,7 +44,7 @@ const MyBookings = () => {
       toast.success("Booking canceled successfully!");
       fetchBookings(user.email);
     } catch (err) {
-      console.error(err);
+     
       toast.error("Failed to cancel booking.");
     }
   };
@@ -76,7 +75,7 @@ const MyBookings = () => {
       toast.success("Booking date modified and confirmed successfully!");
       fetchBookings(user.email);
     } catch (err) {
-      console.error(err);
+     
       toast.error("Failed to modify booking.");
     }
   };

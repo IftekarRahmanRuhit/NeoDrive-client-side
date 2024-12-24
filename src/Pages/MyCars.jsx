@@ -46,7 +46,7 @@ const MyCars = () => {
 
       setCars(data);
     } catch (err) {
-      console.error(err);
+      // console.error(err);
     }
   };
 
@@ -55,7 +55,7 @@ const MyCars = () => {
       await axios.delete(`${import.meta.env.VITE_API_URL}/car/${id}`);
       fetchAllCars();
     } catch (err) {
-      console.error(err);
+      
       toast.error("Failed to delete car.");
     }
   };
@@ -93,7 +93,7 @@ const MyCars = () => {
       setSelectedCar({ ...selectedCar, image: imageUrl });
       toast.success("Image uploaded successfully!");
     } catch (error) {
-      console.error("Image upload failed:", error);
+      
       toast.error("Failed to upload image.");
     } finally {
       setUploading(false);
@@ -109,7 +109,7 @@ const MyCars = () => {
       fetchAllCars();
       setSelectedCar(null);
     } catch (err) {
-      console.error(err);
+      
       toast.error("Failed to update car.");
     }
   };
