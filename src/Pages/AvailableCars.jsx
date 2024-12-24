@@ -1,18 +1,35 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { format } from "date-fns"; 
+import { format } from "date-fns";
 import { Link } from "react-router-dom";
-import { FaCalendarAlt, FaClipboardList, FaMapMarkerAlt,FaSearch, FaList, FaTh } from "react-icons/fa";
+import {
+  FaCalendarAlt,
+  FaClipboardList,
+  FaMapMarkerAlt,
+  FaSearch,
+  FaList,
+  FaTh,
+} from "react-icons/fa";
+import AvailableCarsBanner from "../Components/AvailableCarsBanner";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const AvailableCars = () => {
   const [cars, setCars] = useState([]);
   const [filteredCars, setFilteredCars] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [sortOption, setSortOption] = useState("default");
-  const [viewType, setViewType] = useState("grid"); 
+  const [viewType, setViewType] = useState("grid");
+  // animation
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+      easing: "ease-in-out",
+      once: true,
+    });
+  }, []);
 
   useEffect(() => {
-   
     const fetchCars = async () => {
       try {
         const response = await axios.get(
@@ -64,197 +81,130 @@ const AvailableCars = () => {
   };
 
   return (
-    // <div className="p-6">
-    //   <div className="flex flex-wrap justify-between items-center gap-4 mb-6">
-    //     {/* Search Box */}
-    //     <input
-    //       type="text"
-    //       placeholder="Search by model or location"
-    //       className="border px-4 py-2 rounded-lg w-full md:w-72"
-    //       value={searchTerm}
-    //       onChange={handleSearch}
-    //     />
+    <div>
+      <div>
+        <AvailableCarsBanner></AvailableCarsBanner>
+      </div>
+      <div className="p-10 bg-[#191919] pb-20">
+        {/* Search and Filter Section */}
+        <div className=" mt-10 flex flex-wrap items-center gap-4 justify-between mb-10">
+          {/* Sort Options (Left) */}
+          <select
+            className=" px-4 py-2 rounded-lg w-full md:w-auto bg-gray-950 text-white font-semibold"
+            value={sortOption}
+            onChange={handleSort}
+          >
+            <option value="default">Sort By</option>
+            <option value="priceLowToHigh">Price: Low to High</option>
+            <option value="priceHighToLow">Price: High to Low</option>
+            <option value="dateNewest">Availability: Soonest</option>
+            <option value="dateOldest">Availability: Latest</option>
+          </select>
 
-    //     {/* Sort Options */}
-    //     <select
-    //       className="border px-4 py-2 rounded-lg w-full md:w-auto"
-    //       value={sortOption}
-    //       onChange={handleSort}
-    //     >
-    //       <option value="default">Sort By</option>
-    //       <option value="priceLowToHigh">Price: Low to High</option>
-    //       <option value="priceHighToLow">Price: High to Low</option>
-    //       <option value="dateNewest">Availability: Soonest</option>
-    //       <option value="dateOldest">Availability: Latest</option>
-    //     </select>
+          {/* Search Bar (Center) */}
+          <div className="relative flex-1 max-w-md">
+            <input
+              type="text"
+              placeholder="Search by model or location"
+              className=" bg-gray-950 font-semibold px-4 py-2 w-full rounded-full shadow-sm focus:outline-none focus:ring-2 focus:ring-gray-700 text-white"
+              value={searchTerm}
+              onChange={handleSearch}
+            />
+            <FaSearch className="absolute right-4 top-1/2 transform -translate-y-1/2 text-[#FF3600]" />
+          </div>
 
-    //     {/* Toggle View */}
-    //     <button
-    //       className="bg-blue-500 text-white px-4 py-2 rounded-lg w-full md:w-auto"
-    //       onClick={() => setViewType(viewType === "grid" ? "list" : "grid")}
-    //     >
-    //       {viewType === "grid" ? "Switch to List View" : "Switch to Grid View"}
-    //     </button>
-    //   </div>
-
-    //   {/* Car Cards */}
-    //   <div
-    //     className={`grid ${
-    //       viewType === "grid"
-    //         ? "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"
-    //         : "grid-cols-1 gap-4"
-    //     }`}
-    //   >
-    //     {filteredCars.map((car) => (
-    //       <div
-    //         key={car._id}
-    //         className={`border rounded-lg p-4 shadow-lg hover:shadow-xl transition ${
-    //           viewType === "list" ? "flex items-center gap-4" : ""
-    //         }`}
-    //       >
-    //         <img
-    //           src={car.image}
-    //           alt={car.carModel}
-    //           className={`${
-    //             viewType === "list"
-    //               ? "w-32 h-32 object-cover rounded-md"
-    //               : "w-full h-48 object-cover rounded-md mb-4"
-    //           }`}
-    //         />
-    //         <div className="flex flex-col justify-between">
-    //           <h3 className="text-lg font-semibold">{car.carModel}</h3>
-    //           <p className="text-gray-600">
-    //             Price: ${car.dailyRentalPrice}/day
-    //           </p>
-    //           <p className="text-gray-600">
-    //             Availability: {format(new Date(car.availability), "P")}
-    //           </p>
-    //           <p className="text-gray-600">
-    //             BookingCount: {car.bookingCount} 
-    //           </p>
-    //           <p className="text-gray-500 text-sm">Location: {car.location}</p>
-    //           <Link to={`/cardetails/${car._id}`}>
-    //             {" "}
-    //             <button className="bg-green-500 text-white mt-4 px-4 py-2 rounded-lg w-full">
-    //               Book Now
-    //             </button>
-    //           </Link>
-    //         </div>
-    //       </div>
-    //     ))}
-    //   </div>
-    // </div>
-<div className="p-6 bg-[#191919] ">
-  {/* Search and Filter Section */}
-  <div className="flex flex-wrap items-center gap-4 justify-between mb-6">
-    {/* Sort Options (Left) */}
-    <select
-      className="border px-4 py-2 rounded-lg w-full md:w-auto"
-      value={sortOption}
-      onChange={handleSort}
-    >
-      <option value="default">Sort By</option>
-      <option value="priceLowToHigh">Price: Low to High</option>
-      <option value="priceHighToLow">Price: High to Low</option>
-      <option value="dateNewest">Availability: Soonest</option>
-      <option value="dateOldest">Availability: Latest</option>
-    </select>
-
-    {/* Search Bar (Center) */}
-    <div className="relative flex-1 max-w-md">
-      <input
-        type="text"
-        placeholder="Search by model or location"
-        className="border px-4 py-2 w-full rounded-full shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-        value={searchTerm}
-        onChange={handleSearch}
-      />
-      <FaSearch className="absolute right-4 top-1/2 transform -translate-y-1/2 text-orange-500" />
-    </div>
-
-    {/* Switch View Button (Right) */}
-    <button
-      className="flex items-center bg-blue-500 text-white px-4 py-2 rounded-lg w-full md:w-auto"
-      onClick={() => setViewType(viewType === "grid" ? "list" : "grid")}
-    >
-      {viewType === "grid" ? (
-        <>
-          <FaList className="mr-2" />
-          List View
-        </>
-      ) : (
-        <>
-          <FaTh className="mr-2" />
-          Grid View
-        </>
-      )}
-    </button>
-  </div>
-
-  {/* Car Cards */}
-  <div
-    className={`grid w-11/12 mx-auto ${
-      viewType === "grid"
-        ? "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
-        : "grid-cols-1 gap-4"
-    }`}
-  >
-    {filteredCars.map((car) => (
-      <div
-        key={car._id}
-        className={`relative  rounded-lg p-4 shadow-xl cursor-pointer hover:shadow-xl bg-black transition ${
-          viewType === "list" ? "flex items-center gap-4" : ""
-        }`}
-      >
-        {/* Price Badge */}
-        <div className="absolute top-4 right-4 bg-[#FF3600] text-white font-bold px-3 py-2  ">
-          ${car.dailyRentalPrice}/Day
+          {/* Switch View Button (Right) */}
+          <button
+            className="hidden md:flex flex items-center bg-[#FF3600] font-semibold text-white px-4 py-2 rounded-lg w-full md:w-auto"
+            onClick={() => setViewType(viewType === "grid" ? "list" : "grid")}
+          >
+            {viewType === "grid" ? (
+              <>
+                <FaList className="mr-2" />
+                List View
+              </>
+            ) : (
+              <>
+                <FaTh className="mr-2" />
+                Grid View
+              </>
+            )}
+          </button>
         </div>
 
-        {/* Car Image */}
-        <img
-          src={car.image}
-          alt={car.carModel}
-          className={`hover:scale-105 transition-transform  ${
-            viewType === "list"
-              ? "w-32 h-32 object-cover rounded-md"
-              : "w-full h-48 object-cover rounded-md mb-4"
+        {/* Car Cards */}
+        <div
+          className={`grid w-11/12 mx-auto ${
+            viewType === "grid"
+              ? "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+              : "grid-cols-1 gap-4 w-3/4 mx-auto"
           }`}
-        />
+        >
+          {filteredCars.map((car, index) => (
+            <div
+              key={car._id}
+              data-aos="fade-up"
+              data-aos-delay={index * 100} // Adds delay for a staggered animation
+              className={`relative rounded-lg p-4 shadow-xl cursor-pointer hover:shadow-xl bg-black transition ${
+                viewType === "list" ? "flex items-center gap-4" : ""
+              }`}
+            >
+              {/* Price Badge */}
+              <div className="absolute top-4 right-4 bg-[#FF3600] text-white font-bold px-3 py-2">
+                ${car.dailyRentalPrice}/Day
+              </div>
 
-        {/* Car Details */}
-        <div className="flex flex-col justify-between">
-          <h3 className="text-xl font-semibold mb-2 text-[#FF3600]">{car.carModel}</h3>
+              {/* Car Image */}
+              <img
+                src={car.image}
+                alt={car.carModel}
+                className={`hover:scale-105 transition-transform ${
+                  viewType === "list"
+                    ? "w-80 h-40 object-cover rounded-md"
+                    : "w-full h-48 object-cover rounded-md mb-4"
+                }`}
+              />
 
-          {/* Availability */}
-          <p className="flex items-center text-base-300">
-            <FaCalendarAlt className="mr-2 text-blue-500" />
-            <strong>Availability:</strong> <span className="ml-2">{format(new Date(car.availability), "P")}</span>
-          </p>
+              {/* Car Details */}
+              <div className="flex flex-col justify-between">
+                <h3 className="text-2xl font-semibold mb-2 text-[#FF3600]">
+                  {car.carModel}
+                </h3>
 
-          {/* Booking Count */}
-          <p className="flex items-center text-base-300">
-            <FaClipboardList className="mr-2 text-green-500" />
-            <strong>Booking Count:</strong> <span className="ml-1">{car.bookingCount}</span>
-          </p>
+                {/* Availability */}
+                <p className="flex items-center text-base-300">
+                  <FaCalendarAlt className="mr-2 text-blue-500" />
+                  <strong>Availability:</strong>{" "}
+                  <span className="ml-2">
+                    {format(new Date(car.availability), "P")}
+                  </span>
+                </p>
 
-          {/* Location */}
-          <p className="flex items-center text-base-300">
-            <FaMapMarkerAlt className="mr-2 text-red-500" />
-            <strong>Location:</strong> <span className="ml-1">{car.location}</span>
-          </p>
+                {/* Booking Count */}
+                <p className="flex items-center text-base-300">
+                  <FaClipboardList className="mr-2 text-green-500" />
+                  <strong>Booking Count:</strong>{" "}
+                  <span className="ml-1">{car.bookingCount}</span>
+                </p>
 
-          <Link to={`/cardetails/${car._id}`}>
-            <button className="bg-gradient-to-r from-[#FF3600] to-[#ff3700d7] text-white hover:bg-gradient-to-l font-semibold mt-4 px-4 py-2 rounded-lg w-full">
-              Rent Now
-            </button>
-          </Link>
+                {/* Location */}
+                <p className="flex items-center text-base-300">
+                  <FaMapMarkerAlt className="mr-2 text-red-500" />
+                  <strong>Location:</strong>{" "}
+                  <span className="ml-1">{car.location}</span>
+                </p>
+
+                <Link to={`/cardetails/${car._id}`}>
+                  <button className="bg-gradient-to-r from-[#FF3600] to-[#ff3700d7] text-white hover:bg-gradient-to-l font-semibold mt-4 px-4 py-2 rounded-lg w-full">
+                    Rent Now
+                  </button>
+                </Link>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
-    ))}
-  </div>
-</div>
-    
+    </div>
   );
 };
 
