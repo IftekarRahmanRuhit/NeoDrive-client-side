@@ -20,7 +20,7 @@ const DriversSection = () => {
   }, []);
 
   return (
-    <section className="bg-[#0E0E0E] text-white py-20">
+    <section className="bg-[#191919]  text-white py-20 max-w-screen-2xl mx-auto">
       <div className="max-w-6xl mx-auto px-4 text-center">
         {/* Header Section */}
         <p className="text-[#FF3600] font-medium mb-2">★ Our Experienced Drivers</p>
@@ -33,7 +33,7 @@ const DriversSection = () => {
           {/* Card 1 */}
           <div
             className=" rounded-lg p-4 shadow-md"
-            data-aos="fade-up"
+            data-aos="fade-right"
           >
             <img
               src={team1}
@@ -77,8 +77,8 @@ const DriversSection = () => {
           {/* Card 4 */}
           <div
             className=" rounded-lg p-4 shadow-md"
-            data-aos="fade-up"
-            data-aos-delay="300" // Adds a delay for a staggered effect
+            data-aos="fade-left"
+            data-aos-delay="300" 
           >
             <img
               src={team4}
@@ -92,7 +92,7 @@ const DriversSection = () => {
           {/* card-5  */}
           <div
             className=" rounded-lg p-4 shadow-md"
-            data-aos="fade-up"
+            data-aos="fade-right"
             data-aos-delay="300" 
           >
             <img
@@ -136,7 +136,7 @@ const DriversSection = () => {
           {/* card 8 */}
           <div
             className=" rounded-lg p-4 shadow-md"
-            data-aos="fade-up"
+            data-aos="fade-left"
             data-aos-delay="300" 
           >
             <img

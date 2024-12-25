@@ -85,7 +85,7 @@ const CarDetails = () => {
     }
   };
 
-  // Format the availability date
+  // Formating availability date
   const formattedAvailability = availability
     ? new Date(availability).toLocaleDateString("en-US", {
         year: "numeric",
