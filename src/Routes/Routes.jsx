@@ -57,11 +57,7 @@ export const routes = createBrowserRouter([
             path: '/cardetails/:id',
             element: <CarDetails></CarDetails>
         },
-        {
-            path: '/revenue',
-            element:<PrivateRoute><RevenueInsights></RevenueInsights></PrivateRoute>,
-            loader: ()=> fetch(`${import.meta.env.VITE_API_URL}/cars`)
-        }
+
        
         ]
       },
