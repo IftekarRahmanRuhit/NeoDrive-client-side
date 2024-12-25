@@ -170,6 +170,11 @@ const MyCars = () => {
                     Daily Rental Price
                   </th>
                   <th className="px-4 py-4 text-white text-center text-xl">
+                    Booking Count
+                  </th>
+
+
+                  <th className="px-4 py-4 text-white text-center text-xl">
                     Availability
                   </th>
                   <th className="px-4 py-4 text-white text-center text-xl">
@@ -200,10 +205,15 @@ const MyCars = () => {
                       ${car.dailyRentalPrice}
                     </td>
                     <td className="px-4 py-2 text-gray-300 text-center font-semibold">
-                      {format(parseISO(car.availability), "P")}
+                      {car.bookingCount}
                     </td>
                     <td className="px-4 py-2 text-gray-300 text-center font-semibold">
-                      {format(parseISO(car.dateAdded), "P")}
+                    
+                       {format(new Date(car.availability), "dd-MM-yyyy")}
+                    </td>
+                    <td className="px-4 py-2 text-gray-300 text-center font-semibold">
+                      {/* {format(parseISO(car.dateAdded), "P")} */}
+                       {format(new Date(car.dateAdded), "dd-MM-yyyy")}
                     </td>
                     <td className="px-4 py-2 text-center">
                       <button

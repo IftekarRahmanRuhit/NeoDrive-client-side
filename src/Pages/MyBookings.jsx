@@ -7,7 +7,7 @@ import { FaCalendarAlt, FaTrashAlt } from "react-icons/fa";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../Hooks/useAxiosSecure";
 import "animate.css";
-
+import { format } from "date-fns";
 const MyBookings = () => {
   const { user } = useContext(AuthContext);
   const [bookings, setBookings] = useState([]);
@@ -135,7 +135,8 @@ const MyBookings = () => {
             {booking.carModel}
           </td>
           <td className="px-4 py-2 border-b border-gray-600 font-semibold text-gray-300 text-center">
-            {new Date(booking.bookingDate).toLocaleString()}
+            {/* {new Date(booking.bookingDate).toLocaleString()}  */}
+            {format(new Date(booking.bookingDate), "dd-MM-yyyy HH:mm a")}
           </td>
           <td className="px-4 py-2 border-b border-gray-600 font-semibold text-gray-300 text-center">
             ${Math.abs(booking.dailyRentalPrice)}

@@ -177,7 +177,8 @@ const AvailableCars = () => {
                   <FaCalendarAlt className="mr-2 text-blue-500" />
                   <strong>Availability:</strong>{" "}
                   <span className="ml-2">
-                    {format(new Date(car.availability), "P")}
+                    {/* {format(new Date(car.availability), "P")} */}
+                    {format(new Date(car.availability), "dd-MM-yyyy")}
                   </span>
                 </p>
 
