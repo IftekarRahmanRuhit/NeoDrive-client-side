@@ -4,7 +4,7 @@ import 'aos/dist/aos.css';
 
 const WhyChooseUs = () => {
   useEffect(() => {
-    AOS.init({ duration: 1000 }); // Initialize AOS with a duration of 1000ms
+    AOS.init({ duration: 1000 }); 
   }, []);
 
   return (

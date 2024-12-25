@@ -47,7 +47,7 @@ const RecentListings = () => {
               key={car._id}
               data-aos="fade-up"
               data-aos-delay={index * 100} // Adds delay for a staggered animation
-              className="relative rounded-lg p-4 shadow-xl cursor-pointer hover:shadow-2xl bg-black transition"
+              className=" relative rounded-lg p-4 shadow-xl cursor-pointer hover:shadow-2xl bg-black transition"
             >
               {/* Price Badge */}
               <div className="absolute top-4 right-4 bg-[#FF3600] text-white font-bold px-3 py-2">
