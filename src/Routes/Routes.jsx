@@ -11,7 +11,7 @@ import MyBookings from "../Pages/MyBookings";
 import PrivateRoute from "./PrivateRoute";
 import ForgetPassword from "../Pages/Authentication/ForgetPassword";
 import CarDetails from "../Pages/CarDetails";
-import RevenueInsights from "../Pages/RevenueInsights";
+
 
 
 export const routes = createBrowserRouter([

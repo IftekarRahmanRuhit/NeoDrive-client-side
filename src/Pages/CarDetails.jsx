@@ -46,9 +46,9 @@ const CarDetails = () => {
     }
 
     //  Checking if the user is attempting to book their own car
-    // if (user?.email === agent?.email) {
-    //   return toast.error("Action not permitted!");
-    // }
+    if (user?.email === agent?.email) {
+      return toast.error("Action not permitted!");
+    }
 
     // Checking if the car is available
     if (!availability || new Date(availability) < new Date()) {
