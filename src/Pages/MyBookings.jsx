@@ -1,4 +1,3 @@
-
 import { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import toast from "react-hot-toast";
@@ -9,15 +8,15 @@ import useAxiosSecure from "../Hooks/useAxiosSecure";
 import { format } from "date-fns";
 import RevenueInsights from "./RevenueInsights";
 import { useLoaderData } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
 const MyBookings = () => {
-
   const { user } = useContext(AuthContext);
   const [bookings, setBookings] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [selectedBooking, setSelectedBooking] = useState(null); 
+  const [selectedBooking, setSelectedBooking] = useState(null);
   const [isModalOpen, setModalOpen] = useState(false);
-  const [newBookingDate, setNewBookingDate] = useState(""); 
+  const [newBookingDate, setNewBookingDate] = useState("");
   const axiosSecure = useAxiosSecure();
 
   useEffect(() => {
@@ -40,9 +39,12 @@ const MyBookings = () => {
 
   const handleCancelBooking = async (id) => {
     try {
-      await axios.patch(`${import.meta.env.VITE_API_URL}/booking-cancel/${id}`, {
-        status: "Canceled",
-      });
+      await axios.patch(
+        `${import.meta.env.VITE_API_URL}/booking-cancel/${id}`,
+        {
+          status: "Canceled",
+        }
+      );
       toast.success("Booking canceled successfully!");
       fetchBookings(user.email);
     } catch (err) {
@@ -100,86 +102,112 @@ const MyBookings = () => {
 
   return (
     <div className="max-w-screen-2xl mx-auto">
+      <Helmet>
+        <title>NeoDrive | My Bookings</title>
+      </Helmet>
       <div className="p-6 bg-[#191919] min-h-screen pb-24">
-        <h1 className="text-3xl font-bold mb-10 mt-6 w-11/12 mx-auto text-gray-100">My Bookings</h1>
+        <h1 className="text-3xl font-bold mb-10 mt-6 w-11/12 mx-auto text-gray-100">
+          My Bookings
+        </h1>
         {loading ? (
           <div className="text-center">
             <span className="text-center mx-auto items-center loading loading-bars loading-md text-white"></span>
           </div>
+        ) : bookings.length === 0 ? (
+          <p className="text-center text-gray-300 mt-6">
+            You haven't booked any car yet.
+          </p>
         ) : (
-          bookings.length === 0 ? (
-            <p className="text-center text-gray-300 mt-6">You haven't booked any car yet.</p>
-          ) : (
-            <div className="overflow-x-auto w-11/12 mx-auto">
-              <table className="min-w-full bg-black border border-gray-700 shadow-md rounded-lg animate__animated animate__fadeInUp">
-                <thead className="bg-black text-white">
-                  <tr>
-                    <th className="px-4 py-4 border-b border-gray-600 text-center text-xl">Car Image</th>
-                    <th className="px-4 py-4 border-b border-gray-600 text-center text-xl">Car Model</th>
-                    <th className="px-4 py-4 border-b border-gray-600 text-center text-xl">Booking Date</th>
-                    <th className="px-4 py-4 border-b border-gray-600 text-center text-xl">Total Price</th>
-                    <th className="px-4 py-4 border-b border-gray-600 text-center text-xl">Status</th>
-                    <th className="px-4 py-4 border-b border-gray-600 text-center text-xl">Actions</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {bookings.map((booking) => (
-                    <tr key={booking._id} className="hover:bg-[#2C2C2C]">
-                      <td className="px-4 py-2 border-b border-gray-600">
-                        <img
-                          src={booking.image}
-                          alt="Car"
-                          className="w-28 h-20 mx-auto object-cover rounded"
-                        />
-                      </td>
-                      <td className="px-4 py-2 border-b border-gray-600 font-semibold text-gray-300 text-center">
-                        {booking.carModel}
-                      </td>
-                      <td className="px-4 py-2 border-b border-gray-600 font-semibold text-gray-300 text-center">
-                        {format(new Date(booking.bookingDate), "dd-MM-yyyy HH:mm a")}
-                      </td>
-                      <td className="px-4 py-2 border-b border-gray-600 font-semibold text-gray-300 text-center">
-                        ${Math.abs(booking.dailyRentalPrice)}
-                      </td>
-                      <td className="px-4 py-2 border-b border-gray-600 text-center">
-                        <span
-                          className={`px-2 py-1 rounded ${
-                            booking.status === "Confirmed"
-                              ? "bg-green-500 text-white"
-                              : booking.status === "Canceled"
-                              ? "bg-red-500 text-white"
-                              : "bg-yellow-500 text-white"
-                          }`}
+          <div className="overflow-x-auto w-11/12 mx-auto">
+            <table className="min-w-full bg-black border border-gray-700 shadow-md rounded-lg animate__animated animate__fadeInUp">
+              <thead className="bg-black text-white">
+                <tr>
+                  <th className="px-4 py-4 border-b border-gray-600 text-center text-xl">
+                    Car Image
+                  </th>
+                  <th className="px-4 py-4 border-b border-gray-600 text-center text-xl">
+                    Car Model
+                  </th>
+                  <th className="px-4 py-4 border-b border-gray-600 text-center text-xl">
+                    Booking Date
+                  </th>
+                  <th className="px-4 py-4 border-b border-gray-600 text-center text-xl">
+                    Total Price
+                  </th>
+                  <th className="px-4 py-4 border-b border-gray-600 text-center text-xl">
+                    Status
+                  </th>
+                  <th className="px-4 py-4 border-b border-gray-600 text-center text-xl">
+                    Actions
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                {bookings.map((booking) => (
+                  <tr key={booking._id} className="hover:bg-[#2C2C2C]">
+                    <td className="px-4 py-2 border-b border-gray-600">
+                      <img
+                        src={booking.image}
+                        alt="Car"
+                        className="w-28 h-20 mx-auto object-cover rounded"
+                      />
+                    </td>
+                    <td className="px-4 py-2 border-b border-gray-600 font-semibold text-gray-300 text-center">
+                      {booking.carModel}
+                    </td>
+                    <td className="px-4 py-2 border-b border-gray-600 font-semibold text-gray-300 text-center">
+                      {format(
+                        new Date(booking.bookingDate),
+                        "dd-MM-yyyy HH:mm a"
+                      )}
+                    </td>
+                    <td className="px-4 py-2 border-b border-gray-600 font-semibold text-gray-300 text-center">
+                      ${Math.abs(booking.dailyRentalPrice)}
+                    </td>
+                    <td className="px-4 py-2 border-b border-gray-600 text-center">
+                      <span
+                        className={`px-2 py-1 rounded ${
+                          booking.status === "Confirmed"
+                            ? "bg-green-500 text-white"
+                            : booking.status === "Canceled"
+                            ? "bg-red-500 text-white"
+                            : "bg-yellow-500 text-white"
+                        }`}
+                      >
+                        {booking.status}
+                      </span>
+                    </td>
+                    <td className="px-4 py-2 border-b border-gray-600 text-center align-middle">
+                      <div className="space-x-2">
+                        <button
+                          disabled={
+                            booking.status === "Confirmed" ||
+                            booking.status === "Canceled"
+                          }
+                          onClick={() => openModal(booking)}
+                          className="disabled:cursor-not-allowed inline-flex font-medium items-center px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
                         >
-                          {booking.status}
-                        </span>
-                      </td>
-                      <td className="px-4 py-2 border-b border-gray-600 text-center align-middle">
-                        <div className="space-x-2">
-                          <button
-                            disabled={booking.status === 'Confirmed' || booking.status === 'Canceled'}
-                            onClick={() => openModal(booking)}
-                            className="disabled:cursor-not-allowed inline-flex font-medium items-center px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
-                          >
-                            <FaCalendarAlt className="mr-2" />
-                            Modify Date
-                          </button>
-                          <button
-                            disabled={booking.status === 'Confirmed' || booking.status === 'Canceled'}
-                            onClick={() => confirmCancelBooking(booking._id)}
-                            className="disabled:cursor-not-allowed inline-flex font-medium items-center px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600"
-                          >
-                            <FaTrashAlt className="mr-2" />
-                            Cancel
-                          </button>
-                        </div>
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          )
+                          <FaCalendarAlt className="mr-2" />
+                          Modify Date
+                        </button>
+                        <button
+                          disabled={
+                            booking.status === "Confirmed" ||
+                            booking.status === "Canceled"
+                          }
+                          onClick={() => confirmCancelBooking(booking._id)}
+                          className="disabled:cursor-not-allowed inline-flex font-medium items-center px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600"
+                        >
+                          <FaTrashAlt className="mr-2" />
+                          Cancel
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         )}
         <div>
           <RevenueInsights data={bookings} />

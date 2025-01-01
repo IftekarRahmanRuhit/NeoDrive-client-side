@@ -14,6 +14,7 @@ import {
 import AvailableCarsBanner from "../Components/AvailableCarsBanner";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import { Helmet } from "react-helmet-async";
 
 const AvailableCars = () => {
   const [cars, setCars] = useState([]);
@@ -83,6 +84,9 @@ const AvailableCars = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>NeoDrive | Available Cars</title>
+      </Helmet>
       <div>
         <AvailableCarsBanner></AvailableCarsBanner>
       </div>

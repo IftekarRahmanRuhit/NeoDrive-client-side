@@ -95,8 +95,8 @@ const CarDetails = () => {
     : "Unavailable";
 
   return (
-    <div>
-      <div>
+    <div className="max-w-screen-2xl mx-auto">
+      <div className="max-w-screen-2xl mx-auto">
         <div className="relative w-full h-64 sm:h-80 lg:h-96">
           {/* Image */}
           <img

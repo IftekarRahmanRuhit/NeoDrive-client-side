@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import Banner from "../Components/Banner";
 import DriversSection from "../Components/DriversSection";
 import RecentListings from "../Components/RecentListings";
@@ -7,6 +8,9 @@ import WhyChooseUs from "../Components/WhyChooseUs";
 const Home = () => {
     return (
         <div>
+            <Helmet>
+                <title>NeoDrive | Home</title>
+            </Helmet>
             <Banner></Banner>
             <WhyChooseUs></WhyChooseUs>
             <RecentListings></RecentListings>

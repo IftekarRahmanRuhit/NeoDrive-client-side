@@ -11,6 +11,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import useAxiosSecure from "../Hooks/useAxiosSecure";
 import { FaEdit, FaTrash } from "react-icons/fa";
 import "animate.css";
+import { Helmet } from "react-helmet-async";
 
 const MyCars = () => {
   const { user } = useContext(AuthContext);
@@ -120,6 +121,9 @@ const MyCars = () => {
 
   return (
     <div className="bg-[#191919] pb-28 max-w-screen-2xl mx-auto">
+            <Helmet>
+              <title>NeoDrive | My Cars</title>
+            </Helmet>
       <section className="container mx-auto pt-12 px-4 ">
         <div className="flex items-center justify-between">
           <h2 className="text-3xl font-bold text-gray-100 w-11/12 mx-auto ">My Cars</h2>
