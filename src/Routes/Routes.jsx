@@ -11,6 +11,7 @@ import MyBookings from "../Pages/MyBookings";
 import PrivateRoute from "./PrivateRoute";
 import ForgetPassword from "../Pages/Authentication/ForgetPassword";
 import CarDetails from "../Pages/CarDetails";
+import ContactUs from "../Pages/ContactUs";
 
 
 
@@ -36,6 +37,10 @@ export const routes = createBrowserRouter([
         {
             path: '/availablecars',
             element:<AvailableCars></AvailableCars>
+        },
+        {
+            path: '/contact',
+            element:<ContactUs></ContactUs>
         },
         {
             path: '/addcar',

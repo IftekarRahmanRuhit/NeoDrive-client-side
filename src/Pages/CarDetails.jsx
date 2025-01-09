@@ -97,7 +97,7 @@ const CarDetails = () => {
   return (
     <div className="max-w-screen-2xl mx-auto">
       <div className="max-w-screen-2xl mx-auto">
-        <div className="relative w-full h-64 sm:h-80 lg:h-96">
+        <div className="relative w-full h-64 sm:h-80 lg:h-96 mt-20">
           {/* Image */}
           <img
             src={bg}
@@ -108,7 +108,7 @@ const CarDetails = () => {
           {/* Text Overlay */}
           <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
             <div className="text-center text-white">
-              <h1 className="text-3xl sm:text-4xl lg:text-7xl font-bold mb-4">
+              <h1 className="text-3xl sm:text-4xl lg:text-7xl font-bold mb-4 ">
                 {carModel}
               </h1>
               <p className="text-sm sm:text-base lg:text-lg">

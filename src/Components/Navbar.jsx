@@ -46,6 +46,8 @@ const Navbar = () => {
           Available Cars
         </NavLink>
       </li>
+
+
       {user && (
         <>
           <li>
@@ -86,6 +88,18 @@ const Navbar = () => {
           </li>
         </>
       )}
+            <li>
+        <NavLink
+          to="/contact"
+          className={({ isActive }) =>
+            isActive
+              ? "text-[#FF3600] font-semibold underline"
+              : "text-base-200  hover:text-[#FF3600] font-semibold transition-all duration-200"
+          }
+        >
+          Contact Us
+        </NavLink>
+      </li>
     </>
   );
 
