@@ -105,9 +105,9 @@ const Navbar = () => {
 
   return (
     <div
-      className={`w-full mx-auto bg-black md:p-2 max-w-screen-2xl`}
+      className={` w-full mx-auto bg-black md:p-2 max-w-screen-2xl `}
     >
-      <div className="navbar w-full md:w-11/12 mx-auto pt-4 pb-4">
+      <div className="navbar w-full md:w-11/12 mx-auto pt-4 pb-4 ">
         <div className="navbar-start">
           <div className="dropdown lg:hidden">
             <button

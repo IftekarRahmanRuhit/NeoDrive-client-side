@@ -24,16 +24,16 @@ const DriversSection = () => {
       <div className="max-w-6xl mx-auto px-4 text-center">
         {/* Header Section */}
         <p className="text-[#FF3600] font-medium mb-2">★ Our Experienced Drivers</p>
-        <h2 className="text-3xl sm:text-4xl font-bold mt-3 mb-16">
+        <h2 className="text-xl sm:text-4xl font-bold mt-3 mb-16">
           Ensuring your safety and  comfort <br /> on every journey
         </h2>
 
         {/* Drivers card section  */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 cursor-pointer">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 cursor-pointer w-11/12 mx-auto">
           {/* Card 1 */}
           <div
             className=" rounded-lg p-4 shadow-md"
-            data-aos="fade-right"
+            data-aos="fade-up"
           >
             <img
               src={team1}
@@ -77,7 +77,7 @@ const DriversSection = () => {
           {/* Card 4 */}
           <div
             className=" rounded-lg p-4 shadow-md"
-            data-aos="fade-left"
+            data-aos="fade-up"
             data-aos-delay="300" 
           >
             <img
@@ -92,7 +92,7 @@ const DriversSection = () => {
           {/* card-5  */}
           <div
             className=" rounded-lg p-4 shadow-md"
-            data-aos="fade-right"
+            data-aos="fade-up"
             data-aos-delay="300" 
           >
             <img
@@ -136,7 +136,7 @@ const DriversSection = () => {
           {/* card 8 */}
           <div
             className=" rounded-lg p-4 shadow-md"
-            data-aos="fade-left"
+            data-aos="fade-up"
             data-aos-delay="300" 
           >
             <img
@@ -151,6 +151,10 @@ const DriversSection = () => {
         </div>
       </div>
     </section>
+  
+
+
+    
   );
 };
 

@@ -28,7 +28,7 @@ const SpecialOffers = () => {
           {/* Card 1 */}
           <div
             className="bg-[#1E2325] cursor-pointer rounded-lg shadow-lg p-6 transition-transform transform hover:scale-105"
-            data-aos="fade-right"
+            data-aos="fade-up"
           >
             <h3 className="text-2xl font-bold mb-4 text-gray-300">
               <span className="text-[#FF3600]">15%</span> Off Weekend Rentals!
@@ -68,7 +68,7 @@ const SpecialOffers = () => {
           {/* Card 3 */}
           <div
             className="bg-[#1E2325] rounded-lg shadow-lg p-6 transition-transform transform hover:scale-105"
-            data-aos="fade-left"
+            data-aos="fade-up"
           >
             <h3 className="text-2xl font-bold mb-4 text-gray-300">
               <span className="text-[#FF3600]">Free Upgrade</span> on Rentals!
