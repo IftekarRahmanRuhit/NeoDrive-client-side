@@ -59,8 +59,8 @@ const Login = () => {
   return (
     <div className="hero min-h-screen bg-[#191919] relative max-w-screen-2xl mx-auto">
 
-      <div className="hero-content flex-col lg:flex-row-reverse w-full z-10 relative">
-        <div className="card mt-4 bg-gradient-to-r from-gray-950 via-gray-900 to-black w-full max-w-lg shrink-0 shadow-2xl  mb-16 ">
+      <div className="hero-content flex-col lg:flex-row-reverse w-full z-10 relative mt-32">
+        <div className="card mt-4 bg-gradient-to-r from-gray-950 via-gray-900 to-black w-full max-w-lg shrink-0 shadow-lg  mb-16 ">
           <form onSubmit={handleLogin} className="card-body">
           
             <h1 className="text-3xl font-bold text-center text-[#ff3700d7] ">

@@ -92,10 +92,10 @@ const AvailableCars = () => {
       </div>
       <div className="md:p-10 bg-[#191919] pb-20 max-w-screen-2xl mx-auto">
         {/* Search and Filter Section */}
-        <div className=" mt-10 flex flex-wrap items-center gap-4 justify-between mb-20">
+        <div className=" md:mt-10 flex flex-wrap items-center gap-4 justify-between mb-20">
           {/* Sort Options (Left) */}
           <select
-            className=" px-4 py-2 rounded-lg w-full md:w-auto bg-gray-950 text-white font-semibold"
+            className="mt-5 md:mt-0 px-4 py-2 rounded-lg w-full md:w-auto bg-gray-950 text-white font-semibold"
             value={sortOption}
             onChange={handleSort}
           >

@@ -106,7 +106,7 @@ const MyBookings = () => {
         <title>NeoDrive | My Bookings</title>
       </Helmet>
       <div className="p-6 bg-[#191919] min-h-screen pb-24">
-        <h1 className="text-3xl font-bold mb-10 mt-6 w-11/12 mx-auto text-gray-100">
+        <h1 className="text-3xl font-bold mb-10 mt-32 w-11/12 mx-auto text-gray-100 ">
           My Bookings
         </h1>
         {loading ? (

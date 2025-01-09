@@ -3,7 +3,7 @@ import video from "../../public/video.mp4";
 
 const Banner = () => {
   return (
-    <div className="relative h-screen w-full overflow-hidden max-w-screen-2xl mx-auto">
+    <div className="relative h-[500px] md:h-[650px] w-full overflow-hidden max-w-screen-2xl mx-auto ">
       <div className="relative w-full h-full">
         <video
           src={video}
@@ -16,7 +16,7 @@ const Banner = () => {
       </div>
 
       <div className="absolute top-0 left-0 w-full h-full flex flex-col items-center justify-center bg-black/50 px-4 text-center">
-        <p className="text-[#FF3600] font-bold text-lg">★  Welcome To Car Rent</p>
+        <p className="text-[#FF3600] font-bold text-lg mt-20 md:mt-32">★  Welcome To Car Rent</p>
         <h1 className="text-3xl md:text-5xl lg:text-7xl font-bold text-white dark:text-gray-100 leading-tight">
           Looking to save more on <br /> your rental car?
         </h1>

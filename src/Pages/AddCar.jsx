@@ -135,7 +135,7 @@ const AddCar = () => {
             </Helmet>
       <div>
         <div className="p-10">
-          <p className="text-4xl font-bold text-center mb-4 text-[#ff3700d7] animate__animated animate__backInDown">
+          <p className="mt-28 text-4xl font-bold text-center mb-4 text-[#ff3700d7] animate__animated animate__backInDown">
             Add Your Car
           </p>
           <p className="font-medium text-gray-300 text-center animate__animated animate__backInDown ">

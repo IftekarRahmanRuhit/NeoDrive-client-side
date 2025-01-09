@@ -126,10 +126,10 @@ const MyCars = () => {
             </Helmet>
       <section className="container mx-auto pt-12 px-4 ">
         <div className="flex items-center justify-between">
-          <h2 className="text-3xl font-bold text-gray-100 w-11/12 mx-auto ">My Cars</h2>
+          <h2 className="mt-28 text-3xl font-bold text-gray-100 w-11/12 mx-auto ">My Cars</h2>
           <Link
             to="/addcar"
-            className="bg-gradient-to-r from-[#FF3600] to-[#ff3700d7] text-white hover:bg-gradient-to-l font-semibold px-4 py-2 rounded  "
+            className=" mt-28 bg-gradient-to-r from-[#FF3600] to-[#ff3700d7] text-white hover:bg-gradient-to-l font-semibold px-4 py-2 rounded  "
           >
             Add Car
           </Link>
