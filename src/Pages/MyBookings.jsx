@@ -111,7 +111,7 @@ const MyBookings = () => {
         </h1>
         {loading ? (
           <div className="text-center">
-            <span className="text-center mx-auto items-center loading loading-bars loading-md text-white"></span>
+            <span className="text-center mx-auto items-center loading loading-bars loading-md text-[#FF3600]"></span>
           </div>
         ) : bookings.length === 0 ? (
           <p className="text-center text-gray-300 mt-6">
