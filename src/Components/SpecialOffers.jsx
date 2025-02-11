@@ -16,7 +16,8 @@ const SpecialOffers = () => {
     <section className="bg-[#0E0E0E] py-12 pb-20 max-w-screen-2xl mx-auto">
       <div className="max-w-6xl mx-auto px-4">
         {/* Section Header */}
-        <h2 className="text-3xl font-bold text-[#FF3600] text-center mb-8">
+        <p className="text-[#FF3600] font-medium mb-2 text-center">★ Incredible Offers</p>
+        <h2 className="text-3xl font-bold text-white text-center mb-6">
           Luxury Rides at Affordable Prices!
         </h2>
         <p className="text-center font-semibold text-gray-300 mb-12">

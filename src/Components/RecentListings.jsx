@@ -31,7 +31,8 @@ const RecentListings = () => {
     <div className="bg-[#191919] max-w-screen-2xl mx-auto pb-16">
       <div>
         <div className="p-10 pt-20">
-          <p className="text-4xl font-bold text-center mb-4 text-[#ff3700d7] animate__animated animate__backInUp">
+        <p className="text-[#FF3600] font-medium mb-2 text-center">★ Latest Arrivals</p>
+          <p className="text-4xl font-bold text-center mb-4 text-white animate__animated animate__backInUp">
             Discover the Latest Arrivals
           </p>
           <p className="font-medium text-gray-300 text-center animate__animated animate__backInUp ">

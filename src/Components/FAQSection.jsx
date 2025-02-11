@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 
 
 const FAQSection = () => {
@@ -6,6 +7,7 @@ const FAQSection = () => {
       <div className="container mx-auto px-4 max-w-4xl">
         {/* Header */}
         <div className="text-center mb-12">
+        <p className="text-[#FF3600] font-medium mb-2 text-center">★ FAQ</p>
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">
             Frequently Asked Questions
           </h2>
@@ -99,9 +101,9 @@ const FAQSection = () => {
           <p className="text-gray-400 mb-4">
             Can't find what you're looking for?
           </p>
-          <button className="btn btn-primary">
+          <Link to='/contact'>          <button className="btn btn-primary font-semibold bg-gradient-to-r from-[#FF3600] to-[#ff3700d7] text-white hover:bg-gradient-to-l  duration-300 border-none rounded-lg hover:scale-105 transition-transform">
             Contact Our Support Team
-          </button>
+          </button></Link>
         </div>
       </div>
     </section>
@@ -109,3 +111,4 @@ const FAQSection = () => {
 };
 
 export default FAQSection;
+// font-semibold bg-gradient-to-r from-[#FF3600] to-[#ff3700d7] text-white hover:bg-gradient-to-l  duration-300 border-none rounded-lg hover:scale-105 transition-transform text-sm md:text-base lg:text-lg

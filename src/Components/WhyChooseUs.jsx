@@ -10,7 +10,8 @@ const WhyChooseUs = () => {
   return (
     <div className='bg-[#0E0E0E] md:p-16 max-w-screen-2xl mx-auto'>
       <div className="max-w-6xl mx-auto p-6">
-        <h2 className="text-center text-2xl font-bold mb-4 text-[#FF3600]">
+      <p className="text-[#FF3600] font-medium mb-2 text-center">★ Why Us?</p>
+        <h2 className="text-center text-2xl font-bold mb-4 text-white">
           Why Choose Us?
         </h2>
         <p className="text-center text-gray-300 mb-8 mt-5">
