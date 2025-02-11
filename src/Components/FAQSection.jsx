@@ -2,7 +2,7 @@
 
 const FAQSection = () => {
   return (
-    <section className="py-16 bg-slate-900">
+    <section className="py-16 bg-[#191919] ">
       <div className="container mx-auto px-4 max-w-4xl">
         {/* Header */}
         <div className="text-center mb-12">
@@ -16,7 +16,7 @@ const FAQSection = () => {
 
         {/* FAQ Items */}
         <div className="space-y-4">
-          <div className="collapse collapse-arrow bg-base-200">
+          <div className="collapse collapse-arrow bg-[#1E2325] text-white">
             <input type="radio" name="faq-accordion" defaultChecked />
             <div className="collapse-title text-xl font-medium">
               What documents do I need to rent a car?
@@ -32,7 +32,7 @@ const FAQSection = () => {
             </div>
           </div>
 
-          <div className="collapse collapse-arrow bg-base-200">
+          <div className="collapse collapse-arrow bg-[#1E2325] text-white">
             <input type="radio" name="faq-accordion" />
             <div className="collapse-title text-xl font-medium">
               What is NeoDrive's fuel policy?
@@ -46,7 +46,7 @@ const FAQSection = () => {
             </div>
           </div>
 
-          <div className="collapse collapse-arrow bg-base-200">
+          <div className="collapse collapse-arrow bg-[#1E2325] text-white">
             <input type="radio" name="faq-accordion" />
             <div className="collapse-title text-xl font-medium">
               How does the insurance coverage work?
@@ -62,7 +62,7 @@ const FAQSection = () => {
             </div>
           </div>
 
-          <div className="collapse collapse-arrow bg-base-200">
+          <div className="collapse collapse-arrow bg-[#1E2325] text-white">
             <input type="radio" name="faq-accordion" />
             <div className="collapse-title text-xl font-medium">
               What is your cancellation policy?
@@ -77,7 +77,7 @@ const FAQSection = () => {
             </div>
           </div>
 
-          <div className="collapse collapse-arrow bg-base-200">
+          <div className="collapse collapse-arrow bg-[#1E2325] text-white">
             <input type="radio" name="faq-accordion" />
             <div className="collapse-title text-xl font-medium">
               Do you offer long-term rentals?

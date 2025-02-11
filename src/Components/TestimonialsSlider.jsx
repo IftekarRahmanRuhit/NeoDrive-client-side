@@ -102,7 +102,7 @@ const TestimonialsSection = () => {
   }, [isAnimating]);
 
   return (
-    <section className="bg-[#1E2325] py-16 sm:py-24 overflow-hidden">
+    <section className="bg-[#0E0E0E] py-16 sm:py-24 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
         <p className="text-[#FF3600] font-medium mb-2">★ Testimonials</p>
