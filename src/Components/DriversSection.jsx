@@ -29,7 +29,7 @@ const DriversSection = () => {
         </h2>
 
         {/* Drivers card section  */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 cursor-pointer w-11/12 mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 cursor-pointer w-11/12 mx-auto overflow-hidden">
           {/* Card 1 */}
           <div
             className=" rounded-lg p-4 shadow-md"

@@ -4,6 +4,7 @@ import DriversSection from "../Components/DriversSection";
 import RecentListings from "../Components/RecentListings";
 import SpecialOffers from "../Components/SpecialOffers";
 import WhyChooseUs from "../Components/WhyChooseUs";
+import TestimonialsSlider from "../Components/TestimonialsSlider";
 
 const Home = () => {
     return (
@@ -16,6 +17,7 @@ const Home = () => {
             <RecentListings></RecentListings>
             <SpecialOffers></SpecialOffers>
             <DriversSection></DriversSection>
+            <TestimonialsSlider></TestimonialsSlider>
            
         </div>
     );
