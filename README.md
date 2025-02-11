@@ -95,7 +95,7 @@
     "globals": "^15.13.0",
     "postcss": "^8.4.49",
     "tailwindcss": "^3.4.17",
-    "vite": "^6.0.3"
+    "vite": "^6.0.3",
     "animate.css": "^4.1.1",
     "aos": "^2.3.4",
     "axios": "^1.7.9",

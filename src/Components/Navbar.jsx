@@ -107,7 +107,7 @@ const Navbar = () => {
     return (
       <div className="w-full h-screen flex items-center justify-center">
         <div className="bg-base-100 w-full">
-          <div className="text-center text-[#FF3600]">
+          <div className="text-center  text-[#FF3600]">
           <span className="loading loading-bars loading-lg "></span>
           </div>
         </div>
