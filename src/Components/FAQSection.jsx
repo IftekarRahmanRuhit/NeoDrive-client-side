@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const FAQSection = () => {
   return (
-    <section className="py-16 bg-[#191919] ">
+    <section className="py-16 bg-[#191919] max-w-screen-2xl mx-auto">
       <div className="container mx-auto px-4 max-w-4xl">
         {/* Header */}
         <div className="text-center mb-12">

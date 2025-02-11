@@ -28,7 +28,7 @@ const Navbar = () => {
           className={({ isActive }) =>
             isActive
               ? "text-[#FF3600] font-semibold underline"
-              : "text-base-200 hover:text-[#FF3600] font-semibold transition-all duration-200"
+              : "text-base-200 font-semibold before:w-0 hover:before:w-full before:bg-[#FF3600] before:h-[2px] before:transition-all before:duration-300 before:absolute relative before:rounded-full before:bottom-[-2px] hover:text-[#FF3600] transition-all duration-300 before:left-0 cursor-pointer capitalize flex items-center "
           }
         >
           Home
@@ -40,7 +40,7 @@ const Navbar = () => {
           className={({ isActive }) =>
             isActive
               ? "text-[#FF3600] font-semibold underline"
-              : "text-base-200  hover:text-[#FF3600] font-semibold transition-all duration-200"
+              : "text-base-200 font-semibold before:w-0 hover:before:w-full before:bg-[#FF3600] before:h-[2px] before:transition-all before:duration-300 before:absolute relative before:rounded-full before:bottom-[-2px] hover:text-[#FF3600] transition-all duration-300 before:left-0 cursor-pointer capitalize flex items-center"
           }
         >
           Available Cars
@@ -56,7 +56,7 @@ const Navbar = () => {
               className={({ isActive }) =>
                 isActive
                   ? "text-[#FF3600] font-semibold underline"
-                  : "text-base-200  hover:text-[#FF3600] font-semibold transition-all duration-200"
+                  : "text-base-200 font-semibold before:w-0 hover:before:w-full before:bg-[#FF3600] before:h-[2px] before:transition-all before:duration-300 before:absolute relative before:rounded-full before:bottom-[-2px] hover:text-[#FF3600] transition-all duration-300 before:left-0 cursor-pointer capitalize flex items-center"
               }
             >
               Add Car
@@ -68,7 +68,7 @@ const Navbar = () => {
               className={({ isActive }) =>
                 isActive
                   ? "text-[#FF3600] font-semibold underline"
-                  : "text-base-200  hover:text-[#FF3600] font-semibold transition-all duration-200"
+                  : "text-base-200 font-semibold before:w-0 hover:before:w-full before:bg-[#FF3600] before:h-[2px] before:transition-all before:duration-300 before:absolute relative before:rounded-full before:bottom-[-2px] hover:text-[#FF3600] transition-all duration-300 before:left-0 cursor-pointer capitalize flex items-center"
               }
             >
               My Cars
@@ -80,7 +80,7 @@ const Navbar = () => {
               className={({ isActive }) =>
                 isActive
                   ? "text-[#FF3600] font-semibold underline"
-                  : "text-base-200  hover:text-[#FF3600] font-semibold transition-all duration-200"
+                  : "text-base-200 font-semibold before:w-0 hover:before:w-full before:bg-[#FF3600] before:h-[2px] before:transition-all before:duration-300 before:absolute relative before:rounded-full before:bottom-[-2px] hover:text-[#FF3600] transition-all duration-300 before:left-0 cursor-pointer capitalize flex items-center"
               }
             >
               My Bookings
@@ -94,7 +94,7 @@ const Navbar = () => {
           className={({ isActive }) =>
             isActive
               ? "text-[#FF3600] font-semibold underline"
-              : "text-base-200  hover:text-[#FF3600] font-semibold transition-all duration-200"
+              : "text-base-200 font-semibold before:w-0 hover:before:w-full before:bg-[#FF3600] before:h-[2px] before:transition-all before:duration-300 before:absolute relative before:rounded-full before:bottom-[-2px] hover:text-[#FF3600] transition-all duration-300 before:left-0 cursor-pointer capitalize flex items-center"
           }
         >
           Contact Us
