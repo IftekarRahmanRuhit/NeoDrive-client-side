@@ -109,7 +109,7 @@ const TestimonialsSection = () => {
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
             What Our Customers Say About NeoDrive
           </h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+          <p className="text-lg text-gray-300 max-w-2xl mx-auto">
             Discover why customers choose NeoDrive for their car rental needs and what makes our service stand out.
           </p>
         </div>
@@ -118,18 +118,18 @@ const TestimonialsSection = () => {
           {/* Navigation Buttons */}
           <button
             onClick={prevSlide}
-            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-10 bg-white p-3 rounded-full shadow-lg hover:bg-gray-50 transition-all duration-200 hidden md:block"
+            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-10 bg-[#FF3600] p-3 rounded-full shadow-lg hover:bg-[#FF3600] transition-all duration-200 hidden md:block"
           >
-            <svg className="w-6 h-6 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="w-6 h-6 text-gray-100" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
             </svg>
           </button>
           
           <button
             onClick={nextSlide}
-            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-10 bg-white p-3 rounded-full shadow-lg hover:bg-gray-50 transition-all duration-200 hidden md:block"
+            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-10 bg-[#FF3600] p-3 rounded-full shadow-lg hover:bg-[#FF3600] transition-all duration-200 hidden md:block"
           >
-            <svg className="w-6 h-6 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="w-6 h-6 text-gray-100" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
             </svg>
           </button>
@@ -150,7 +150,7 @@ const TestimonialsSection = () => {
                       .map((testimonial) => (
                         <div
                           key={testimonial.id}
-                          className="bg-white p-8 rounded-lg shadow-sm border border-gray-100 transform transition-all duration-300 hover:shadow-md"
+                          className="bg-[#191919] p-8 rounded-lg shadow-lg border border-none transform transition-all duration-300 hover:shadow-md cursor-pointer"
                         >
                           <div className="space-y-6">
                             <StarRating rating={testimonial.rating} />
@@ -164,8 +164,8 @@ const TestimonialsSection = () => {
                                 className="w-12 h-12 rounded-full object-cover"
                               />
                               <div>
-                                <h3 className="font-medium text-gray-900">{testimonial.name}</h3>
-                                <p className="text-gray-500 text-sm">{testimonial.role}</p>
+                                <h3 className="font-medium text-[#FF3600]">{testimonial.name}</h3>
+                                <p className="text-gray-200 text-sm">{testimonial.role}</p>
                               </div>
                             </div>
                           </div>
