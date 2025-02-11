@@ -5,6 +5,7 @@ import RecentListings from "../Components/RecentListings";
 import SpecialOffers from "../Components/SpecialOffers";
 import WhyChooseUs from "../Components/WhyChooseUs";
 import TestimonialsSlider from "../Components/TestimonialsSlider";
+import FAQSection from "../Components/FAQSection";
 
 const Home = () => {
     return (
@@ -18,6 +19,7 @@ const Home = () => {
             <SpecialOffers></SpecialOffers>
             <DriversSection></DriversSection>
             <TestimonialsSlider></TestimonialsSlider>
+            <FAQSection></FAQSection>
            
         </div>
     );
