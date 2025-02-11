@@ -154,7 +154,7 @@ const TestimonialsSection = () => {
                         >
                           <div className="space-y-6">
                             <StarRating rating={testimonial.rating} />
-                            <p className="text-gray-600 text-sm leading-relaxed">
+                            <p className="text-gray-200 text-sm leading-relaxed">
                               {testimonial.comment}
                             </p>
                             <div className="flex items-center gap-4">
