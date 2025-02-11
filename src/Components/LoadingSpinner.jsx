@@ -38,12 +38,9 @@ const LoadingSpinner = () => {
           <Lottie animationData={car} loop autoplay />
         </div>
         <div className="mt-4 text-center">
-          <h2 className="text-xl font-bold text-gray-100">
-          Welcome to Our Car Rental Service
+          <h2 className="text-2xl font-bold text-gray-100">
+          Welcome to Our Car Rental Service 
           </h2>
-          <p className="text-lg text-gray-100">
-          Loading the best rides just for you...
-          </p>
         </div>
       </div>
     </div>
