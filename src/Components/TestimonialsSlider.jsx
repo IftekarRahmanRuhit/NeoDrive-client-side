@@ -102,10 +102,11 @@ const TestimonialsSection = () => {
   }, [isAnimating]);
 
   return (
-    <section className="bg-gray-50 py-16 sm:py-24 overflow-hidden">
+    <section className="bg-[#1E2325] py-16 sm:py-24 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+        <p className="text-[#FF3600] font-medium mb-2">★ Testimonials</p>
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
             What Our Customers Say About NeoDrive
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
